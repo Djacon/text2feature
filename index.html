@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="">
+    <title>Text2Feature | Homepage</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.png">
+    <script defer src="js/main.js"></script>
+</head>
+
+<body class="overflow-hidden">
+    <div x-data="{ sidebarOpen: false }" class="relative flex h-screen text-gray-800 bg-white font-roboto">
+        <div x-cloak :class="sidebarOpen ? 'block' : 'hidden'" @click="sidebarOpen = false"
+            class="fixed inset-0 z-20 transition-opacity bg-black opacity-50 lg:hidden"></div>
+
+        <div x-cloak :class="sidebarOpen ? 'translate-x-0 ease-in' : '-translate-x-full ease-out'"
+            class="fixed inset-y-0 left-0 z-30 w-64 px-4 overflow-y-auto transition duration-200 transform bg-white border-r border-gray-100 lg:translate-x-0 lg:relative lg:inset-0 ">
+            <div class="mt-8">
+                <a href="index.html" class="flex items-center">
+                  <img class="w-auto h-6" src="images/logo.svg" alt="logo">
+                  <span class="mx-3 mt-1 font-medium text-lg">Text2<span class="text-indigo-600">Feature</span></span>
+                </a>
+            </div>
+
+            <hr class="my-6 border-gray-100">
+
+            <nav class="space-y-8">
+                <div class="space-y-4">
+                    <h3 class="px-4 text-sm tracking-wider text-gray-400 uppercase">PAGES</h3>
+
+                    <a class="flex items-center px-4 py-2 text-gray-600 transition-colors duration-200 transform bg-gray-200 rounded-lg bg-opacity-40"
+                        href="index.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        </svg>
+                        <span class="mx-3 font-medium capitalize">Homepage</span>
+                    </a>
+
+                    <a class="flex items-center px-4 py-2 text-gray-500 transition-colors duration-300 transform rounded-lg hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
+                        href="text_summarizer.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+                        </svg>
+                        <span class="mx-3 font-medium capitalize">Text Summarizer</span>
+                    </a>
+
+                    <a class="flex items-center px-4 py-2 text-gray-500 transition-colors duration-300 transform rounded-lg hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
+                        href="emotion_detection.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
+                        </svg>
+
+                        <span class="mx-3 font-medium capitalize">Emotion Detection</span>
+                    </a>
+
+                    <a class="flex items-center px-4 py-2 text-gray-500 transition-colors duration-300 transform rounded-lg hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
+                        href="modals">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        </svg>
+
+                        <span class="mx-3 font-medium capitalize">modals</span>
+                    </a>
+
+                    <a class="flex items-center px-4 py-2 text-gray-500 transition-colors duration-300 transform rounded-lg hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
+                        href="tables">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M13 10V14H19V10H13ZM11 10H5V14H11V10ZM13 19H19V16H13V19ZM11 19V16H5V19H11ZM13 5V8H19V5H13ZM11 5H5V8H11V5ZM19 3C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3H19Z"
+                                fill="currentColor"></path>
+                        </svg>
+
+                        <span class="mx-3 font-medium capitalize">Tables</span>
+                    </a>
+
+                    <a class="flex items-center px-4 py-2 text-gray-500 transition-colors duration-300 transform rounded-lg hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
+                        href="tasks">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                        </svg>
+
+                        <span class="mx-3 font-medium capitalize">tasks</span>
+                    </a>
+                </div>
+
+                <div class="space-y-4">
+                    <h3 class="px-4 text-sm tracking-wider text-gray-400 uppercase">OTHER</h3>
+
+                    <a class="flex items-center px-4 py-2 text-gray-500 transition-colors duration-300 transform rounded-lg hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
+                        href="/">
+                        <svg width="24" height="24" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M474.89,300.41a121.43,121.43,0,0,1-121.3,121.3H247.08V392.13H353.59a91.72,91.72,0,1,0,0-183.44H87.53L151,272.2l-20.92,20.92L30.89,193.9l99.22-99.22L151,115.6l-63.5,63.51H353.59A121.43,121.43,0,0,1,474.89,300.41Z" />
+                        </svg>
+                        <span class="mx-3 font-medium">Visit Main Website</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+        <div class="flex flex-col flex-1 overflow-hidden bg-gray-100">
+            <header class="bg-white border-b border-gray-100">
+                <div class="flex items-center justify-between px-4 py-4 sm:px-6">
+                    <div class="flex items-center">
+                        <button @click="sidebarOpen = !sidebarOpen" class="text-gray-500 lg:hidden focus:outline-none">
+                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 6H20M4 12H20M4 18H11" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+
+                        <div class="relative" x-data="{ search: '' }" @click.away="search = ''">
+                            <div class="relative mx-4 lg:mx-0">
+                                <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                                    <svg class="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round"></path>
+                                    </svg>
+                                </span>
+
+                                <input x-model="search" type="text"
+                                    class="w-32 h-10 py-2 pl-10 pr-4 text-gray-700 placeholder-gray-400 transition-all duration-150 bg-white border border-gray-200 rounded-md focus:w-44 sm:w-64 sm:focus:w-80 focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
+                                    placeholder="Find anything...">
+                            </div>
+
+                            <div class="absolute right-0 z-20 w-full py-2 mt-2 space-y-4 overflow-hidden bg-white rounded-md shadow-xl"
+                                x-show="search.length > 0" x-cloak
+                                x-transition:enter="transition ease-out duration-100 transform"
+                                x-transition:enter-start="opacity-0 scale-95"
+                                x-transition:enter-end="opacity-100 scale-100"
+                                x-transition:leave="transition ease-in duration-75 transform"
+                                x-transition:leave-start="opacity-100 scale-100"
+                                x-transition:leave-end="opacity-0 scale-95">
+
+                                <div>
+                                    <h3 class="px-5 text-xs tracking-wider text-gray-500 uppercase">Projects</h3>
+                                    <div class="mt-2">
+                                        <a class="block px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 transform sm:px-12 hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
+                                            href="text_summarizer.html">
+                                            Text Summarizer
+                                        </a>
+
+                                        <a class="block px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 transform sm:px-12 hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
+                                            href="">
+                                            Scandinavian
+                                        </a>
+
+                                        <a class="block px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 transform sm:px-12 hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
+                                            href="">
+                                            Classic
+                                        </a>
+
+                                        <a class="block px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 transform sm:px-12 hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
+                                            href="">
+                                            Modern
+                                        </a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="px-5 text-xs tracking-wider text-gray-500 uppercase">Other</h3>
+                                    <div class="mt-2">
+                                        <a class="block px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 transform sm:px-12 hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
+                                            href="/">
+                                            Visit Main Website
+                                        </a>
+
+                                        <!-- <a class="block px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 transform sm:px-12 hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
+                                            href="">
+                                            Cameron Williamson
+                                        </a> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="flex-1 overflow-y-auto">
+                <div class="px-4 py-8 sm:px-6">
+                    <div>
+                        <h1 class="text-2xl font-medium text-gray-700 sm:text-3xl">Homepage</h1>
+
+                        <div class="hidden mt-3 overflow-y-auto text-sm lg:items-center lg:flex whitespace-nowrap">
+                            <a class="text-gray-600">Pages</a>
+                            <span class="mx-1 text-gray-500">/</span>
+                            <a href="" class="text-indigo-600 hover:underline">Homepage</a>
+                        </div>
+                    </div>
+
+                    <div class="mt-6">
+                        <section class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
+                            <div class="flex items-center justify-between px-6 py-3 bg-white rounded-lg shadow-sm">
+                                <div>
+                                    <p class="font-medium text-gray-500">Today’s Money</p>
+
+                                    <div class="flex items-end">
+                                        <h2 class="mt-1 text-2xl font-medium text-gray-800">$53,000</h2>
+                                        <span class="mx-2 text-indigo-500">
+                                            +55%
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="p-2 text-white bg-indigo-500 rounded-lg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between px-6 py-3 bg-white rounded-lg shadow-sm">
+                                <div>
+                                    <p class="font-medium text-gray-500">Today’s Users</p>
+
+                                    <div class="flex items-end">
+                                        <h2 class="mt-1 text-2xl font-medium text-gray-800">2,300</h2>
+                                        <span class="mx-2 text-indigo-500">
+                                            +5%
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="p-2 text-white bg-indigo-500 rounded-lg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between px-6 py-3 bg-white rounded-lg shadow-sm">
+                                <div>
+                                    <p class="font-medium text-gray-500">New Clients</p>
+
+                                    <div class="flex items-end">
+                                        <h2 class="mt-1 text-2xl font-medium text-gray-800">+3,052</h2>
+                                        <span class="mx-2 text-red-500">
+                                            -14%
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="p-2 text-white bg-indigo-500 rounded-lg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between px-6 py-3 bg-white rounded-lg shadow-sm">
+                                <div>
+                                    <p class="font-medium text-gray-500">Total Sales</p>
+
+                                    <div class="flex items-end">
+                                        <h2 class="mt-1 text-2xl font-medium text-gray-800">$89,000</h2>
+                                        <span class="mx-2 text-indigo-500">
+                                            +8%
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="p-2 text-white bg-indigo-500 rounded-lg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="mt-6 space-y-6">
+                            <div class="w-full p-4 bg-white rounded-lg xl:p-6">
+                                <div class="mb-5 rounded-lg bg-gradient-to-r from-indigo-900 to-gray-900">
+                                    <canvas id="barChart" height="80"></canvas>
+                                </div>
+
+                                <div>
+                                    <h1 class="text-lg font-medium text-gray-700 capitalize sm:text-xl md:text-2xl">
+                                        active users</h1>
+
+                                    <p class="mt-2 text-gray-500">
+                                        <span class="text-green-500">(+10)</span>&nbsp;than last week
+                                    </p>
+
+                                    <div class="grid gap-12 mt-8 sm:grid-cols-2 md:grid-cols-4">
+                                        <div>
+                                            <div class="flex items-center capitalize">
+                                                <div class="p-2 text-white bg-indigo-500 rounded-lg">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
+                                                        viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2"
+                                                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                                    </svg>
+                                                </div>
+
+                                                <div class="mx-3 font-medium text-gray-500 ">users</div>
+                                            </div>
+
+                                            <div class="mt-3">
+                                                <h1 class="text-xl font-semibold text-gray-600">23,212</h1>
+
+                                                <div class="w-full mt-3 overflow-hidden bg-gray-200 rounded-full">
+                                                    <div class="w-8/12 h-1 bg-indigo-500"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <div class="flex items-center capitalize">
+                                                <div class="p-2 text-white bg-indigo-500 rounded-lg">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
+                                                        viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2"
+                                                            d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+                                                    </svg>
+                                                </div>
+
+                                                <div class="mx-3 font-medium text-gray-500 ">Clicks</div>
+                                            </div>
+
+                                            <div class="mt-3">
+                                                <h1 class="text-xl font-semibold text-gray-600">3,125m</h1>
+
+                                                <div class="w-full mt-3 overflow-hidden bg-gray-200 rounded-full">
+                                                    <div class="w-11/12 h-1 bg-indigo-500"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <div class="flex items-center capitalize">
+                                                <div class="p-2 text-white bg-indigo-500 rounded-lg">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
+                                                        viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2"
+                                                            d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                                                    </svg>
+                                                </div>
+
+                                                <div class="mx-3 font-medium text-gray-500 ">Sales</div>
+                                            </div>
+
+                                            <div class="mt-3">
+                                                <h1 class="text-xl font-semibold text-gray-600">$89,000</h1>
+
+                                                <div class="w-full mt-3 overflow-hidden bg-gray-200 rounded-full">
+                                                    <div class="w-5/6 h-1 bg-indigo-500"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <div class="flex items-center capitalize">
+                                                <div class="p-2 text-white bg-indigo-500 rounded-lg">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
+                                                        viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2"
+                                                            d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+                                                    </svg>
+                                                </div>
+
+                                                <div class="mx-3 font-medium text-gray-500 ">Items</div>
+                                            </div>
+
+                                            <div class="mt-3">
+                                                <h1 class="text-xl font-semibold text-gray-600">260</h1>
+
+                                                <div class="w-full mt-3 overflow-hidden bg-gray-200 rounded-full">
+                                                    <div class="w-2/3 h-1 bg-indigo-500"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="mt-6 space-y-6 xl:flex xl:space-y-0 xl:-mx-3">
+                            <div class="w-full p-4 bg-white rounded-lg shadow-sm xl:mx-3 xl:w-2/3 xl:p-6">
+                                <h2 class="text-lg font-medium text-gray-700 capitalize sm:text-xl md:text-2xl">Projects
+                                </h2>
+
+                                <p class="flex items-center mt-2 text-gray-500">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-green-500"
+                                        viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd"
+                                            d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+
+                                    <span class="mx-2">30 done this month</span>
+                                </p>
+
+                                <div class="flex flex-col mt-8">
+                                    <div class="overflow-x-auto">
+                                        <div class="inline-block min-w-full align-middle">
+                                            <div class="overflow-hidden">
+                                                <table class="min-w-full divide-y divide-gray-200">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col"
+                                                                class="px-6 py-3 text-sm font-medium tracking-wider text-left text-gray-500 uppercase rtl:text-right">
+                                                                <span>COMPANIES</span>
+                                                            </th>
+                                                            <th scope="col"
+                                                                class="px-6 py-3 text-sm font-medium tracking-wider text-left text-gray-500 uppercase rtl:text-right">
+                                                                <span>MEMBERS</span>
+                                                            </th>
+                                                            <th scope="col"
+                                                                class="px-6 py-3 text-sm font-medium tracking-wider text-left text-gray-500 uppercase rtl:text-right">
+                                                                <span>BUDGET</span>
+                                                            </th>
+                                                            <th scope="col"
+                                                                class="px-6 py-3 text-sm font-medium tracking-wider text-left text-gray-500 uppercase rtl:text-right">
+                                                                <span>COMPLETION</span>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tbody class="bg-white divide-y divide-gray-200">
+                                                        <tr>
+                                                            <td
+                                                                class="px-6 py-4 font-medium text-gray-800 whitespace-nowrap">
+                                                                Chakra Soft UI Version
+                                                            </td>
+
+                                                            <td class="px-6 py-4 font-medium whitespace-nowrap">
+                                                                <div
+                                                                    class="relative z-0 flex -space-x-1 overflow-hidden">
+                                                                    <img class="relative z-30 inline-block w-6 h-6 rounded-full ring-2 ring-white"
+                                                                        src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                                                        alt="">
+                                                                    <img class="relative z-20 inline-block w-6 h-6 rounded-full ring-2 ring-white"
+                                                                        src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                                                        alt="">
+                                                                    <img class="relative z-10 inline-block w-6 h-6 rounded-full ring-2 ring-white"
+                                                                        src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80"
+                                                                        alt="">
+                                                                    <img class="relative z-0 inline-block w-6 h-6 rounded-full ring-2 ring-white"
+                                                                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                                                        alt="">
+                                                                </div>
+                                                            </td>
+
+                                                            <td
+                                                                class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
+                                                                $128.00
+                                                            </td>
+
+                                                            <td
+                                                                class="px-6 py-4 text-gray-700 capitalize whitespace-nowrap">
+                                                                <span class="font-medium text-indigo-500">66%</span>
+                                                                <div
+                                                                    class="w-full h-2 overflow-hidden bg-gray-200 rounded-full">
+                                                                    <div class="w-8/12 h-full bg-indigo-500"></div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td
+                                                                class="px-6 py-4 font-medium text-gray-800 whitespace-nowrap">
+                                                                Add Progress Track
+                                                            </td>
+
+                                                            <td class="px-6 py-4 font-medium whitespace-nowrap">
+                                                                <div
+                                                                    class="relative z-0 flex -space-x-1 overflow-hidden">
+                                                                    <img class="relative z-30 inline-block w-6 h-6 rounded-full ring-2 ring-white"
+                                                                        src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                                                        alt="">
+                                                                    <img class="relative z-10 inline-block w-6 h-6 rounded-full ring-2 ring-white"
+                                                                        src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80"
+                                                                        alt="">
+                                                                    <img class="relative z-0 inline-block w-6 h-6 rounded-full ring-2 ring-white"
+                                                                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                                                        alt="">
+                                                                </div>
+                                                            </td>
+
+                                                            <td
+                                                                class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
+                                                                $220.00
+                                                            </td>
+
+                                                            <td
+                                                                class="px-6 py-4 text-gray-700 capitalize whitespace-nowrap">
+                                                                <span class="font-medium text-indigo-500">25%</span>
+                                                                <div
+                                                                    class="w-full h-2 overflow-hidden bg-gray-200 rounded-full">
+                                                                    <div class="w-3/12 h-full bg-indigo-500 "></div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td
+                                                                class="px-6 py-4 font-medium text-gray-800 whitespace-nowrap">
+                                                                Fix Platform Errors
+                                                            </td>
+
+                                                            <td class="px-6 py-4 font-medium whitespace-nowrap">
+                                                                <div
+                                                                    class="relative z-0 flex -space-x-1 overflow-hidden">
+                                                                    <img class="relative z-10 inline-block w-6 h-6 rounded-full ring-2 ring-white"
+                                                                        src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80"
+                                                                        alt="">
+                                                                    <img class="relative z-0 inline-block w-6 h-6 rounded-full ring-2 ring-white"
+                                                                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                                                        alt="">
+                                                                </div>
+                                                            </td>
+
+                                                            <td
+                                                                class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
+                                                                $89.00
+                                                            </td>
+
+                                                            <td
+                                                                class="px-6 py-4 text-gray-700 capitalize whitespace-nowrap">
+                                                                <span class="font-medium text-indigo-500">100%</span>
+                                                                <div
+                                                                    class="w-full h-2 overflow-hidden bg-gray-200 rounded-full">
+                                                                    <div class="w-full h-full bg-indigo-500"></div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td
+                                                                class="px-6 py-4 font-medium text-gray-800 whitespace-nowrap">
+                                                                Chakra Soft UI Version
+                                                            </td>
+
+                                                            <td class="px-6 py-4 font-medium whitespace-nowrap">
+                                                                <div
+                                                                    class="relative z-0 flex -space-x-1 overflow-hidden">
+                                                                    <img class="relative z-40 inline-block w-6 h-6 rounded-full ring-2 ring-white"
+                                                                        src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+                                                                        alt="">
+                                                                    <img class="relative z-30 inline-block w-6 h-6 rounded-full ring-2 ring-white"
+                                                                        src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                                                        alt="">
+                                                                    <img class="relative z-20 inline-block w-6 h-6 rounded-full ring-2 ring-white"
+                                                                        src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                                                        alt="">
+                                                                    <img class="relative z-10 inline-block w-6 h-6 rounded-full ring-2 ring-white"
+                                                                        src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80"
+                                                                        alt="">
+                                                                    <img class="relative z-0 inline-block w-6 h-6 rounded-full ring-2 ring-white"
+                                                                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                                                        alt="">
+                                                                </div>
+                                                            </td>
+
+                                                            <td
+                                                                class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
+                                                                $256.00
+                                                            </td>
+
+                                                            <td
+                                                                class="px-6 py-4 text-gray-700 capitalize whitespace-nowrap">
+                                                                <span class="font-medium text-indigo-500">75%</span>
+                                                                <div
+                                                                    class="w-full h-2 overflow-hidden bg-gray-200 rounded-full">
+                                                                    <div class="w-9/12 h-full bg-indigo-500 "></div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="w-full p-4 bg-white rounded-lg shadow-sm xl:mx-3 xl:w-1/3 xl:p-6">
+                                <h2 class="text-lg font-medium text-gray-700 capitalize sm:text-xl md:text-2xl">Orders
+                                    overview</h2>
+
+                                <p class="mt-2 text-gray-500">
+                                    <span class="text-green-500">+30%</span>&nbsp;this month
+                                </p>
+
+                                <div class="flow-root mt-6">
+                                    <ul class="-mb-8">
+                                        <li>
+                                            <div class="relative pb-8">
+                                                <span
+                                                    class="absolute top-4 left-4 rtl:right-4 rtl:left-auto -ml-px h-full w-0.5 bg-gray-200"
+                                                    aria-hidden="true"></span>
+                                                <div class="relative flex">
+                                                    <div>
+                                                        <span
+                                                            class="flex items-center justify-center w-8 h-8 bg-white rounded-full ring-8 ring-white">
+                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                class="w-5 h-5 text-blue-500" viewBox="0 0 20 20"
+                                                                fill="currentColor">
+                                                                <path
+                                                                    d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z" />
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+
+                                                    <div class="min-w-0 flex-1 pt-1.5 mx-3">
+                                                        <div>
+                                                            <p class="text-sm font-medium text-gray-700">$2400, Design
+                                                                changes</p>
+                                                            <p
+                                                                class="w-32 mt-1 text-sm text-gray-500 truncate sm:w-auto">
+                                                                22 DEC 7:20 PM</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <div class="relative pb-8">
+                                                <span
+                                                    class="absolute top-4 left-4 -ml-px rtl:right-4 rtl:left-auto h-full w-0.5 bg-gray-200"
+                                                    aria-hidden="true"></span>
+                                                <div class="relative flex">
+                                                    <div>
+                                                        <span
+                                                            class="flex items-center justify-center w-8 h-8 bg-white rounded-full ring-8 ring-white">
+                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                class="w-5 h-5 text-indigo-500" viewBox="0 0 20 20"
+                                                                fill="currentColor">
+                                                                <path fill-rule="evenodd"
+                                                                    d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z"
+                                                                    clip-rule="evenodd" />
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+
+                                                    <div class="min-w-0 flex-1 pt-1.5 mx-3">
+                                                        <div>
+                                                            <p class="text-sm font-medium text-gray-700">New order
+                                                                #4219423</p>
+                                                            <p
+                                                                class="w-32 mt-1 text-sm text-gray-500 truncate sm:w-auto">
+                                                                21 DEC 11:21 PM</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <div class="relative pb-8">
+                                                <span
+                                                    class="absolute top-4 left-4 -ml-px rtl:right-4 rtl:left-auto h-full w-0.5 bg-gray-200"
+                                                    aria-hidden="true"></span>
+                                                <div class="relative flex">
+                                                    <div>
+                                                        <span
+                                                            class="flex items-center justify-center w-8 h-8 bg-white rounded-full ring-8 ring-white">
+                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                class="w-5 h-5 text-cyan-500" viewBox="0 0 20 20"
+                                                                fill="currentColor">
+                                                                <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z" />
+                                                                <path fill-rule="evenodd"
+                                                                    d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"
+                                                                    clip-rule="evenodd" />
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+
+                                                    <div class="min-w-0 flex-1 pt-1.5 mx-3">
+                                                        <div>
+                                                            <p class="text-sm font-medium text-gray-700">New card added
+                                                                for order #3210145</p>
+                                                            <p
+                                                                class="w-32 mt-1 text-sm text-gray-500 truncate sm:w-auto">
+                                                                21 DEC 11:21 PM</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <div class="relative pb-8">
+                                                <div class="relative flex">
+                                                    <div>
+                                                        <span
+                                                            class="flex items-center justify-center w-8 h-8 bg-white rounded-full ring-8 ring-white">
+                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                class="w-5 h-5 text-green-500" viewBox="0 0 20 20"
+                                                                fill="currentColor">
+                                                                <path
+                                                                    d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+
+
+                                                    <div class="min-w-0 flex-1 pt-1.5 mx-3">
+                                                        <div>
+                                                            <p class="text-sm font-medium text-gray-700">Server Payments
+                                                                for April</p>
+                                                            <p
+                                                                class="w-32 mt-1 text-sm text-gray-500 truncate sm:w-auto">
+                                                                21 DEC 9:28 PM</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>

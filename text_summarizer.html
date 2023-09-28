@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="">
+    <title>Text2Feature | Summarizer</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.png">
+    <script defer src="js/main.js"></script>
+</head>
+
+<body class="overflow-hidden">
+    <div x-data="{ sidebarOpen: false }" class="relative flex h-screen text-gray-800 bg-white font-roboto">
+        <div x-cloak :class="sidebarOpen ? 'block' : 'hidden'" @click="sidebarOpen = false"
+            class="fixed inset-0 z-20 transition-opacity bg-black opacity-50 lg:hidden"></div>
+
+        <div x-cloak :class="sidebarOpen ? 'translate-x-0 ease-in' : '-translate-x-full ease-out'"
+            class="fixed inset-y-0 left-0 z-30 w-64 px-4 overflow-y-auto transition duration-200 transform bg-white border-r border-gray-100 lg:translate-x-0 lg:relative lg:inset-0 ">
+            <div class="mt-8">
+                <a href="index.html" class="flex items-center">
+                  <img class="w-auto h-6" src="images/logo.svg" alt="logo">
+                  <span class="mx-3 mt-1 font-medium text-lg">Text2<span class="text-indigo-600">Feature</span></span>
+                </a>
+            </div>
+
+            <hr class="my-6 border-gray-100">
+
+            <nav class="space-y-8">
+                <div class="space-y-4">
+                    <h3 class="px-4 text-sm tracking-wider text-gray-400 uppercase">PAGES</h3>
+
+                    <a class="flex items-center px-4 py-2 text-gray-500 transition-colors duration-200 transform rounded-lg hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
+                        href="index.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        </svg>
+                        <span class="mx-3 font-medium capitalize">Homepage</span>
+                    </a>
+
+                    <a class="flex items-center px-4 py-2 text-gray-600 transition-colors duration-300 transform bg-gray-200 rounded-lg bg-opacity-40"
+                        href="forms.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+                        </svg>
+                        <span class="mx-3 font-medium capitalize">Text Summarizer</span>
+                    </a>
+
+                    <a class="flex items-center px-4 py-2 text-gray-500 transition-colors duration-300 transform rounded-lg hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
+                        href="emotion_detection.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
+                        </svg>
+
+                        <span class="mx-3 font-medium capitalize">Emotion Detection</span>
+                    </a>
+
+                    <a class="flex items-center px-4 py-2 text-gray-500 transition-colors duration-300 transform rounded-lg hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
+                        href="modals">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        </svg>
+
+                        <span class="mx-3 font-medium capitalize">modals</span>
+                    </a>
+
+                    <a class="flex items-center px-4 py-2 text-gray-500 transition-colors duration-300 transform rounded-lg hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
+                        href="tables">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M13 10V14H19V10H13ZM11 10H5V14H11V10ZM13 19H19V16H13V19ZM11 19V16H5V19H11ZM13 5V8H19V5H13ZM11 5H5V8H11V5ZM19 3C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3H19Z"
+                                fill="currentColor"></path>
+                        </svg>
+
+                        <span class="mx-3 font-medium capitalize">Tables</span>
+                    </a>
+
+                    <a class="flex items-center px-4 py-2 text-gray-500 transition-colors duration-300 transform rounded-lg hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
+                        href="tasks">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                        </svg>
+
+                        <span class="mx-3 font-medium capitalize">tasks</span>
+                    </a>
+                </div>
+
+                <div class="space-y-4">
+                    <h3 class="px-4 text-sm tracking-wider text-gray-400 uppercase">OTHER</h3>
+
+                    <a class="flex items-center px-4 py-2 text-gray-500 transition-colors duration-300 transform rounded-lg hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
+                        href="/">
+                        <svg width="24" height="24" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M474.89,300.41a121.43,121.43,0,0,1-121.3,121.3H247.08V392.13H353.59a91.72,91.72,0,1,0,0-183.44H87.53L151,272.2l-20.92,20.92L30.89,193.9l99.22-99.22L151,115.6l-63.5,63.51H353.59A121.43,121.43,0,0,1,474.89,300.41Z" />
+                        </svg>
+                        <span class="mx-3 font-medium">Visit Main Website</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+
+        <div class="flex flex-col flex-1 overflow-hidden bg-gray-100">
+            <header class="bg-white border-b border-gray-100">
+                <div class="flex items-center justify-between px-4 py-4 sm:px-6">
+                    <div class="flex items-center">
+                        <button @click="sidebarOpen = !sidebarOpen" class="text-gray-500 lg:hidden focus:outline-none">
+                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 6H20M4 12H20M4 18H11" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+
+                        <div class="relative" x-data="{ search: '' }" @click.away="search = ''">
+                            <div class="relative mx-4 lg:mx-0">
+                                <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                                    <svg class="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round"></path>
+                                    </svg>
+                                </span>
+
+                                <input x-model="search" type="text"
+                                    class="w-32 h-10 py-2 pl-10 pr-4 text-gray-700 placeholder-gray-400 transition-all duration-150 bg-white border border-gray-200 rounded-md focus:w-44 sm:w-64 sm:focus:w-80 focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
+                                    placeholder="Find anything...">
+                            </div>
+
+                            <div class="absolute right-0 z-20 w-full py-2 mt-2 space-y-4 overflow-hidden bg-white rounded-md shadow-xl"
+                                x-show="search.length > 0" x-cloak
+                                x-transition:enter="transition ease-out duration-100 transform"
+                                x-transition:enter-start="opacity-0 scale-95"
+                                x-transition:enter-end="opacity-100 scale-100"
+                                x-transition:leave="transition ease-in duration-75 transform"
+                                x-transition:leave-start="opacity-100 scale-100"
+                                x-transition:leave-end="opacity-0 scale-95">
+
+                                <div>
+                                    <h3 class="px-5 text-xs tracking-wider text-gray-500 uppercase">Projects</h3>
+                                    <div class="mt-2">
+                                        <a class="block px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 transform sm:px-12 hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
+                                            href="text_summarizer.html">
+                                            Text Summarizer
+                                        </a>
+
+                                        <a class="block px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 transform sm:px-12 hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
+                                            href="">
+                                            Scandinavian
+                                        </a>
+
+                                        <a class="block px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 transform sm:px-12 hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
+                                            href="">
+                                            Classic
+                                        </a>
+
+                                        <a class="block px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 transform sm:px-12 hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
+                                            href="">
+                                            Modern
+                                        </a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="px-5 text-xs tracking-wider text-gray-500 uppercase">Other</h3>
+                                    <div class="mt-2">
+                                        <a class="block px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 transform sm:px-12 hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
+                                            href="/">
+                                            Visit Main Website
+                                        </a>
+
+                                        <!-- <a class="block px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 transform sm:px-12 hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
+                                            href="">
+                                            Cameron Williamson
+                                        </a> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="flex-1 overflow-y-auto">
+                <div class="px-4 py-8 sm:px-6">
+                    <div>
+                        <h1 class="text-2xl font-medium text-gray-700 sm:text-3xl">Text Summarizer</h1>
+
+                        <div class="hidden mt-3 overflow-y-auto text-sm lg:items-center lg:flex whitespace-nowrap">
+                            <a class="text-gray-600">Pages</a>
+                            <span class="mx-1 text-gray-500">/</span>
+                            <a href="" class="text-indigo-600 hover:underline">Text_Summarizer</a>
+                        </div>
+                    </div>
+
+                    <div class="mt-6">
+                        <div class="w-full p-4 bg-white rounded-lg xl:p-6">
+                            <h1 class="text-lg font-medium text-gray-700 capitalize sm:text-xl md:text-2xl">Create New
+                                Project</h1>
+
+                            <form class="mt-6 space-y-5">
+                                <div>
+                                    <label for="title" class="block text-sm text-gray-700 capitalize">Title</label>
+                                    <input type="text"
+                                        class="block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
+                                </div>
+
+                                <div>
+                                    <label for="description"
+                                        class="block text-sm text-gray-700 capitalize">description</label>
+                                    <textarea
+                                        class="block w-full h-32 px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"></textarea>
+                                </div>
+
+                                <div>
+                                    <label for="users" class="block text-sm text-gray-700 capitalize">users</label>
+                                    <select multiple
+                                        class="block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
+                                        <option>Jane Doe</option>
+                                        <option>John Doe</option>
+                                        <option>Pamela Anderson</option>
+                                        <option>Arthur Melo</option>
+                                        <option>Olivia Wathan</option>
+                                        <option>Joseph Gonzalez</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label for="image" class="block text-sm text-gray-700 capitalize">image</label>
+
+                                    <label
+                                        class="flex flex-col items-center justify-center w-full h-32 mt-2 text-gray-500 border-2 border-dashed rounded-md cursor-pointer hover:text-gray-600 md:h-64">
+                                        <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20">
+                                            <path
+                                                d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z">
+                                            </path>
+                                        </svg>
+
+                                        <span class="mt-4">Select Image</span>
+
+                                        <input type="file" class="hidden">
+                                    </label>
+                                </div>
+
+                                <div class="flex justify-end">
+                                    <button
+                                        class="flex items-center px-2 py-2 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-200 transform bg-indigo-500 rounded-md hover:bg-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-50">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mx-1" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12">
+                                            </path>
+                                        </svg>
+                                        <span class="mx-1">Save</span>
+                                    </button>
+                                </div>
+                            </form>
+
+                        </div>
+
+                        <div class="w-full p-4 mt-8 bg-white rounded-lg xl:p-6">
+                            <h1 class="text-lg font-medium text-gray-700 capitalize sm:text-xl md:text-2xl">Inputs</h1>
+
+                            <div class="grid grid-cols-2 gap-8 mt-6">
+                                <div>
+                                    <label for="user name" class="block text-sm text-gray-700 capitalize">user
+                                        name</label>
+                                    <input placeholder="Arthur Melo" type="password"
+                                        class="block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
+                                    <p class="mt-2 text-sm text-gray-500">Lorem ipsum dolor, sit amet consectetur
+                                        adipisicing elit.</p>
+                                </div>
+
+                                <div>
+                                    <label for="search" class="block text-sm text-gray-700 capitalize">With Icon</label>
+
+                                    <div class="relative mt-2">
+                                        <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                                            <svg class="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="none">
+                                                <path
+                                                    d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round"></path>
+                                            </svg>
+                                        </span>
+
+                                        <input type="text"
+                                            class="w-full py-2 pl-10 pr-4 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
+                                            placeholder="Search">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="success" class="block text-sm text-gray-700 capitalize">success</label>
+                                    <input placeholder="Arthur Melo" type="password"
+                                        class="block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-green-500 rounded-md focus:border-green-400 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-40">
+                                    <p class="mt-2 text-sm text-green-500">Your password is strong.</p>
+                                </div>
+
+                                <div>
+                                    <label for="error" class="block text-sm text-gray-700 capitalize">Error</label>
+                                    <input placeholder="Password" type="text"
+                                        class="block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-red-500 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40">
+                                    <p class="mt-2 text-sm text-red-500">Your password is too short.</p>
+                                </div>
+
+                                <div>
+                                    <label for="Disabled"
+                                        class="block text-sm text-gray-700 capitalize">Disabled</label>
+                                    <input disabled placeholder="Arthur Melo" type="password"
+                                        class="block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 bg-gray-100 border border-gray-200 rounded-md cursor-not-allowed">
+                                </div>
+
+                                <div>
+                                    <label for="Disabled" class="block text-sm text-gray-700 capitalize">Select</label>
+
+                                    <select
+                                        class="block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
+                                        <option>Jane Doe</option>
+                                        <option>John Doe</option>
+                                        <option>Pamela Anderson</option>
+                                        <option>Arthur Melo</option>
+                                        <option>Olivia Wathan</option>
+                                        <option>Joseph Gonzalez</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" id="checkbox"
+                                            class="p-2 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
+                                        <label for="checkbox"
+                                            class="block mx-2 text-gray-700 capitalize">checkbox</label>
+                                    </div>
+
+                                    <div class="flex items-center mt-4">
+                                        <input type="checkbox" id="checkbox-active" checked
+                                            class="p-2 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
+                                        <label for="checkbox-active"
+                                            class="block mx-2 text-gray-700 capitalize">Checked</label>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="flex items-center">
+                                        <input type="radio" id="radio-input" name="radio-input"
+                                            class="p-2 bg-white border border-gray-200 rounded-full focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
+                                        <label for="radio-input" class="block mx-2 text-gray-700 capitalize">Radio
+                                            Button</label>
+                                    </div>
+
+                                    <div class="flex items-center mt-4">
+                                        <input type="radio" id="radio-input2" name="radio-input" checked
+                                            class="p-2 bg-white border border-gray-200 rounded-full focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
+                                        <label for="radio-input2"
+                                            class="block mx-2 text-gray-700 capitalize">Checked</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w-full p-4 mt-8 bg-white rounded-lg xl:p-6">
+                            <h1 class="text-lg font-medium text-gray-700 capitalize sm:text-xl md:text-2xl">Buttons</h1>
+
+                            <div class="grid grid-cols-2 gap-8 mt-6 place-items-start">
+                                <div>
+                                    <button
+                                        class="flex items-center justify-center px-4 py-2.5 text-sm tracking-wide text-white capitalize transition-colors duration-200 transform bg-indigo-500 rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-500 focus:ring focus:ring-indigo-300 focus:ring-opacity-50">
+                                        <span>Button</span>
+                                    </button>
+
+                                    <button
+                                        class=" px-4 py-2.5 mt-4 text-sm tracking-wide -mx-1 text-white capitalize transition-colors duration-200 transform bg-indigo-500 rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-500 focus:ring focus:ring-indigo-300 focus:ring-opacity-50">
+                                        <div class="flex items-center justify-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mx-1" fill="none"
+                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
+                                            </svg>
+
+                                            <span class="mx-1">Button with Icon</span>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>

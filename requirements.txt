@@ -1,3 +1,0 @@
-txtai[all]
-streamlit
-PyPDF2
