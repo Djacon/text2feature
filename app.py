@@ -40,6 +40,7 @@ if choice == 'Summarize Text':
                 result = summary_text(input_text)
                 st.markdown('**Summarize Text**')
                 st.success(result)
+
 elif choice == 'Summarize Document':
     st.subheader('Summarize Document using txt.ai')
     input_file = st.file_uploader('Upload your document', type=['pdf'])
