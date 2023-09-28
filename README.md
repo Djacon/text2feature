@@ -3,4 +3,4 @@ Powerful text mining tool. Convert raw text into clean using modern technologies
 
 You can test my website right here 👇
 
-Link: https://djacon-text2feature-app.streamlit.app
+Link: https://text-2-feature.streamlit.app/
