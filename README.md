@@ -3,4 +3,4 @@ Powerful text mining tool. Convert raw text into clean using modern technologies
 
 You can test my website right here 👇
 
-Link: djacon.github.io/text2feature
+Link: [djacon.github.io/text2feature](https://djacon.github.io/text2feature)
