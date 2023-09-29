@@ -171,6 +171,24 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="flex items-center">
+                        <div x-data="{ dropdownOpen: false }" class="relative inline-block">
+                            <button @click="dropdownOpen = ! dropdownOpen" class="relative z-10 flex items-center flex-shrink-0 text-sm text-gray-600 focus:outline-none">
+                                <img class="flex-shrink-0 object-cover w-8 h-8 rounded-full" src="images/github-mark.svg" alt="github-mark">
+                            </button>
+                
+                            <div class="absolute right-0 z-20 w-56 py-2 mt-2 overflow-hidden bg-white rounded-md shadow-xl rtl:right-auto rtl:left-0" x-show="dropdownOpen" x-transition:enter="transition ease-out duration-100 transform" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-75 transform" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" @click.away="dropdownOpen = false" style="display: none;">
+                                <a target="_blank" href="https://github.com/Djacon/text2feature" class="flex items-center p-3 -mt-2 text-sm text-gray-600 transition-colors duration-200 transform hover:bg-gray-100">
+                                    <img class="flex-shrink-0 object-cover mx-1 rounded-full w-9 h-9" src="images/github-mark.svg" alt="github-mark">
+                                    <div class="mx-1">
+                                        <h1 class="text-sm font-semibold text-gray-700">Made By Djacon</h1>
+                                        <p class="text-sm text-gray-500">github.com/Djacon</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </header>
 
