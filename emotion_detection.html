@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="canonical" href="">
-    <title>Text2Feature | Summarizer</title>
+    <title>Text2Feature | Detection</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="icon" type="image/svg+xml" href="images/logo.svg">
     <script defer src="js/main.js"></script>
@@ -41,7 +41,7 @@
                         <span class="mx-3 font-medium capitalize">Homepage</span>
                     </a>
 
-                    <a class="flex items-center px-4 py-2 text-gray-600 transition-colors duration-300 transform bg-gray-200 rounded-lg bg-opacity-40"
+                    <a class="flex items-center px-4 py-2 text-gray-500 transition-colors duration-200 transform rounded-lg hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
                         href="text_summarizer.html">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor" stroke-width="2">
@@ -51,7 +51,7 @@
                         <span class="mx-3 font-medium capitalize">Text Summarizer</span>
                     </a>
 
-                    <a class="flex items-center px-4 py-2 text-gray-500 transition-colors duration-300 transform rounded-lg hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
+                    <a class="flex items-center px-4 py-2 text-gray-600 transition-colors duration-300 transform bg-gray-200 rounded-lg bg-opacity-40"
                         href="emotion_detection.html">
                         <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M9 16C9.85038 16.6303 10.8846 17 12 17C13.1154 17 14.1496 16.6303 15 16" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
@@ -176,12 +176,12 @@
             <main class="flex-1 overflow-y-auto">
                 <div class="px-4 py-8 sm:px-6">
                     <div>
-                        <h1 class="text-2xl font-medium text-gray-700 sm:text-3xl">Text Summarizer</h1>
+                        <h1 class="text-2xl font-medium text-gray-700 sm:text-3xl">Emotion Detection</h1>
 
                         <div class="hidden mt-3 overflow-y-auto text-sm lg:items-center lg:flex whitespace-nowrap">
                             <a class="text-gray-600">Pages</a>
                             <span class="mx-1 text-gray-500">/</span>
-                            <a href="" class="text-indigo-600 hover:underline">Text_Summarizer</a>
+                            <a href="" class="text-indigo-600 hover:underline">Emotion_Detection</a>
                         </div>
                     </div>
 
@@ -194,9 +194,8 @@
                                     <label for="sum-type" class="block text-sm text-gray-700 capitalize">Select Type</label>
                                     <select id="sum-type"
                                         class="block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
-                                        <option value="sum-text">Summarize Text</option>
-                                        <option value="sum-file">Summarize PDF</option>
-                                        <option value="sum-video">Summarize Youtube Video</option>
+                                        <option value="sum-text">Identify Text</option>
+                                        <option value="sum-file">Identify PDF</option>
                                     </select>
                                 </div>
 
