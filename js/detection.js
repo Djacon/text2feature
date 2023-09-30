@@ -16,19 +16,6 @@ const form = document.getElementById("sum-form");
 
 // In progress...
 function _summarize(text) {
-    // var xhr = new XMLHttpRequest();
-    // xhr.open("POST", "https://www.editpad.org/tool/tool/summarizingTool", true);
-    // xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-    // var data = `text=${text}&percnt=40&modd=1&captha=0`;
-    // xhr.onreadystatechange = function () {
-    //     if (xhr.readyState === 4 && xhr.status === 200) {
-    //         var response = JSON.parse(xhr.responseText);
-    //         summaryText.value = response.content;
-    //     }
-    // };
-
-    // xhr.send(data)
     summaryText.value = 'Прогноз:\n-нейтрально:    99.386%\n-гнев:                  0.400%\n-печаль:             0.073%\n-отвращение:   0.063%\n-удивление:      0.044%\n-интерес:           0.014%\n-радость:           0.010%\n-страх:                0.007%\n-вина:                 0.003%';
     return;
 }
