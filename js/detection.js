@@ -1,23 +1,41 @@
-const selectOption = document.getElementById("sum-type");
+// Form Divs
+const form = document.getElementById("sum-form");
 const sumText  = document.getElementById("sum-text-div");
 const sumFile  = document.getElementById("sum-file-div");
 const sumVideo = document.getElementById("sum-video-div");
 
+// Form Data
+const selectOption  = document.getElementById("sum-type");
 const sumTextInput  = document.getElementById("sum-text-input");
 const sumVideoInput = document.getElementById("sum-video-input");
 
+// Error Output Section
 const sumError = document.getElementById("sum-err");
 
+// Result Section
 const extractText = document.getElementById("extracted-text");
 const summaryText = document.getElementById("summarized-text");
-
-const form = document.getElementById("sum-form");
 
 
 // In progress...
 function _summarize(text) {
-    summaryText.value = 'Прогноз:\n-нейтрально:    99.386%\n-гнев:                  0.400%\n-печаль:             0.073%\n-отвращение:   0.063%\n-удивление:      0.044%\n-интерес:           0.014%\n-радость:           0.010%\n-страх:                0.007%\n-вина:                 0.003%';
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "https://djacon-emotion-detection.hf.space", true);
+
+    var data = `text=${text}`;
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // var response = JSON.parse(xhr.responseText);
+            // summaryText.value = response.content;
+            console.log('Prediction:', xhr.responseText);
+        }
+    };
+
+    xhr.send(data)
     return;
+
+    // summaryText.value = 'Прогноз:\n-нейтрально:    99.386%\n-гнев:                  0.400%\n-печаль:             0.073%\n-отвращение:   0.063%\n-удивление:      0.044%\n-интерес:           0.014%\n-радость:           0.010%\n-страх:                0.007%\n-вина:                 0.003%';
+    // return;
 }
 
 // In progress...
@@ -42,9 +60,9 @@ function summarize(event) {
 
     switch (selectOption.value) {
         case 'sum-text':
-            len = sumTextInput.value.length
-            if (len < 100) {
-                sumError.innerText = `The text size should be at least 100 characters (${len} < 100)`;
+            let value = sumTextInput.value
+            if (value === '') {
+                sumError.innerText = `You need to input some text`;
                 sumError.classList.remove('hidden');
                 return;
             }

@@ -1,17 +1,20 @@
-const selectOption = document.getElementById("sum-type");
+// Form Divs
+const form = document.getElementById("sum-form");
 const sumText  = document.getElementById("sum-text-div");
 const sumFile  = document.getElementById("sum-file-div");
 const sumVideo = document.getElementById("sum-video-div");
 
+// Form Data
+const selectOption  = document.getElementById("sum-type");
 const sumTextInput  = document.getElementById("sum-text-input");
 const sumVideoInput = document.getElementById("sum-video-input");
 
+// Error Output Section
 const sumError = document.getElementById("sum-err");
 
+// Result Section
 const extractText = document.getElementById("extracted-text");
 const summaryText = document.getElementById("summarized-text");
-
-const form = document.getElementById("sum-form");
 
 
 // In progress...
