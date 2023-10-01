@@ -7,6 +7,7 @@ const sumVideo = document.getElementById("sum-video-div");
 // Form Data
 const selectOption  = document.getElementById("sum-type");
 const sumTextInput  = document.getElementById("sum-text-input");
+const sumFileInput  = document.getElementById("sum-file-input");
 const sumVideoInput = document.getElementById("sum-video-input");
 
 // Error Output Section
@@ -16,8 +17,9 @@ const sumError = document.getElementById("sum-err");
 const extractText = document.getElementById("extracted-text");
 const summaryText = document.getElementById("summarized-text");
 
+const MAX_SIZE = 5000;
 
-// In progress...
+
 function _summarize(text) {
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "/predict_emotion", true);
@@ -37,9 +39,40 @@ function _summarize(text) {
     return;
 }
 
-// In progress...
-function _extractPDF(file) {
-    return file;
+function _extractFile() {
+    const file = sumFileInput.files[0];
+    if (file.type === 'text/plain') {
+        const reader = new FileReader();
+        reader.onload = function() {
+            extractText.value = reader.result.slice(0, MAX_SIZE);
+        };
+        reader.readAsText(file, 'CP1251');
+        return;
+    } else if (file.type === 'application/pdf') {
+        extractText.value = '';
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            const pdfData = e.target.result;
+            pdfjsLib.getDocument(pdfData).promise.then(function (pdfDocument) {
+                for (let pageNum = 1; pageNum <= pdfDocument.numPages; pageNum++) {
+                    pdfDocument.getPage(pageNum).then(function (pdfPage) {
+                      pdfPage.getTextContent().then(function (textContent) {
+                        let size = extractText.value.length;
+                        let pageText = [];
+                        for (const textItem of textContent.items) {
+                            pageText.push(textItem.str);
+                            size += textItem.str.length;
+                            if (size > MAX_SIZE) break;
+                        }
+                        extractText.value += pageText.join(' ');
+                      });
+                    });
+                  }
+            });
+        };
+        reader.readAsDataURL(file);
+    }
+    return;
 }
 
 // In progress...
@@ -67,29 +100,37 @@ function summarize(event) {
             }
             break;
         case 'sum-file':
-            sumError.innerText = 'This option is not supported, yet';
-            sumError.classList.remove('hidden');
-            return;
+            const allowedTypes = ['application/pdf', 'text/plain'];
+            const file = sumFileInput.files[0];
+
+            if (!file) {
+                sumError.innerText = 'There is no File';
+                sumError.classList.remove('hidden');
+                return;
+            }
+
+            if (!allowedTypes.includes(file.type)) {
+                sumError.innerText = 'Not supported type (Only `.pdf` or `.txt`)';
+                sumError.classList.remove('hidden');
+                return;
+            }
     }
 
     sumError.classList.add('hidden');
 
     // Here we can finally summarize data
-    let extractedText = '';
     switch (selectOption.value) {
         case 'sum-text':
-            extractedText = sumTextInput.value;
+            extractText.value = sumTextInput.value.slice(0, MAX_SIZE);
             break;
         case 'sum-file':
-            extractedText = _extractPDF(sumFileInput);
+            _extractFile();
             break;
         case 'sum-video':
-            extractedText = _getCaptions(sumVideoInput.value);
+            _getCaptions(sumVideoInput.value);
             break;
     }
-
-    extractText.value = extractedText;
-    _summarize(extractedText);
+    _summarize(extractText.value);
 }
 
 

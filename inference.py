@@ -6,8 +6,8 @@ path = './model/'
 model = BertForSequenceClassification.from_pretrained(path)
 tokenizer = AutoTokenizer.from_pretrained(path)
 
-LABELS = ['радость', 'интерес', 'удивление', 'печаль', 'гнев', 'отвращение',
-          'страх', 'вина', 'нейтрально']
+LABELS = ['Joy', 'Interest', 'Surprise', 'Sadness', 'Anger', 'Disgust', 'Fear',
+          'Guilt', 'Neutral']
 
 
 # Probabilistic prediction of emotion in a text
