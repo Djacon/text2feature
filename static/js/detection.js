@@ -20,22 +20,21 @@ const summaryText = document.getElementById("summarized-text");
 // In progress...
 function _summarize(text) {
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "https://djacon-emotion-detection.hf.space", true);
+    xhr.open("POST", "/predict_emotion", true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+ 
+    var data = JSON.stringify({ "text": text });
 
-    var data = `text=${text}`;
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            // var response = JSON.parse(xhr.responseText);
-            // summaryText.value = response.content;
-            console.log('Prediction:', xhr.responseText);
+            resp = xhr.responseText;
+            result = Object.entries(JSON.parse(resp)).sort((a, b) => b[1] - a[1]).map(a => a[0]+': '+a[1]).join('\n');
+            summaryText.value = result;
         }
     };
 
     xhr.send(data)
     return;
-
-    // summaryText.value = 'Прогноз:\n-нейтрально:    99.386%\n-гнев:                  0.400%\n-печаль:             0.073%\n-отвращение:   0.063%\n-удивление:      0.044%\n-интерес:           0.014%\n-радость:           0.010%\n-страх:                0.007%\n-вина:                 0.003%';
-    // return;
 }
 
 // In progress...
