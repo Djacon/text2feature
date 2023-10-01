@@ -81,7 +81,7 @@ function _getCaptions(src) {
 }
 
 
-function summarize(event) {
+async function summarize(event) {
     event.preventDefault();
     
     if (selectOption.value === 'sum-video' && !sumVideoInput.value.startsWith('https://www.youtube.com/watch?v=')) {
@@ -125,6 +125,8 @@ function summarize(event) {
             break;
         case 'sum-file':
             _extractFile();
+            summaryText.value = 'Please wait...';
+            await (new Promise(resolve => setTimeout(resolve, 1000)));
             break;
         case 'sum-video':
             _getCaptions(sumVideoInput.value);
@@ -168,8 +170,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
     var submitButton = document.getElementById("submit");
-  
-    submitButton.addEventListener("click", function (e) {
-      summarize(e);
-    });
+    submitButton.addEventListener("click", summarize);
   });

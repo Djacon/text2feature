@@ -44,9 +44,9 @@ function _extractFile() {
         const reader = new FileReader();
         reader.onload = function() {
             extractText.value = reader.result.slice(0, MAX_SIZE);
+            // extractText.value = reader.result.slice(0, MAX_SIZE);
         };
         reader.readAsText(file, 'CP1251');
-        return;
     } else if (file.type === 'application/pdf') {
         extractText.value = '';
         const reader = new FileReader();
@@ -80,7 +80,7 @@ function _getCaptions(src) {
 }
 
 
-function summarize(event) {
+async function summarize(event) {
     event.preventDefault();
     
     if (selectOption.value === 'sum-video' && !sumVideoInput.value.startsWith('https://www.youtube.com/watch?v=')) {
@@ -124,11 +124,14 @@ function summarize(event) {
             break;
         case 'sum-file':
             _extractFile();
+            summaryText.value = 'Please wait...';
+            await (new Promise(resolve => setTimeout(resolve, 1000)));
             break;
         case 'sum-video':
             _getCaptions(sumVideoInput.value);
             break;
     }
+
     _summarize(extractText.value);
 }
 
@@ -167,8 +170,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
     var submitButton = document.getElementById("submit");
-  
-    submitButton.addEventListener("click", function (e) {
-      summarize(e);
-    });
+    submitButton.addEventListener("click", summarize);
   });
