@@ -20,12 +20,12 @@ const summaryText = document.getElementById("summarized-text");
 const MAX_SIZE = 5000;
 
 
-function _summarize(text) {
+function _summarize() {
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "/predict_emotion", true);
     xhr.setRequestHeader("Content-Type", "application/json");
  
-    var data = JSON.stringify({ "text": text });
+    var data = JSON.stringify({ "sum_type": selectOption.value, "text": extractText.value });
 
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
@@ -129,10 +129,10 @@ async function summarize(event) {
             await (new Promise(resolve => setTimeout(resolve, 1000)));
             break;
         case 'sum-video':
-            _getCaptions(sumVideoInput.value);
+            extractText.value = sumVideoInput.value.slice(0, MAX_SIZE);
             break;
     }
-    _summarize(extractText.value);
+    _summarize();
 }
 
 

@@ -21,12 +21,12 @@ const MAX_SIZE = 5000;
 
 
 // In progress...
-function _summarize(text) {
+function _summarize() {
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "https://www.editpad.org/tool/tool/summarizingTool", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-    var data = `text=${text}&percnt=40&modd=1&captha=0`;
+    var data = `text=${extractText.value}&percnt=40&modd=1&captha=0`;
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             var response = JSON.parse(xhr.responseText);
@@ -44,7 +44,6 @@ function _extractFile() {
         const reader = new FileReader();
         reader.onload = function() {
             extractText.value = reader.result.slice(0, MAX_SIZE);
-            // extractText.value = reader.result.slice(0, MAX_SIZE);
         };
         reader.readAsText(file, 'CP1251');
     } else if (file.type === 'application/pdf') {
@@ -132,7 +131,7 @@ async function summarize(event) {
             break;
     }
 
-    _summarize(extractText.value);
+    _summarize();
 }
 
 
