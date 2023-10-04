@@ -26,7 +26,11 @@ async def predict(request: EmotionRequest):
     if request.sum_type == 'sum-video':
         text = get_youtube_caption(request.text)
         if not text:
+            return 'Invalid Link'
+        elif text == 'err':  # maybe this'll never happen, but who knows, huh?
             return 'Something goes wrong...'
+        elif text == 'no-cap':
+            return "Unfortunately, this youtube video doesn't contain captions"
     else:
         text = request.text
     return predict_emotions(request.text)

@@ -29,9 +29,9 @@ function _summarize() {
 
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            resp = xhr.responseText;
-            result = Object.entries(JSON.parse(resp)).sort((a, b) => b[1] - a[1]).map(a => a[0]+': '+a[1]).join('\n');
-            summaryText.value = result;
+            result = xhr.responseText.split("\\n").join("\n");
+            // result = Object.entries(JSON.parse(resp)).sort((a, b) => b[1] - a[1]).map(a => a[0]+': '+a[1]).join('\n');
+            summaryText.value = result.slice(1, -1);
         }
     };
 
@@ -83,12 +83,6 @@ function _getCaptions(src) {
 
 async function summarize(event) {
     event.preventDefault();
-    
-    if (selectOption.value === 'sum-video' && !sumVideoInput.value.startsWith('https://www.youtube.com/watch?v=')) {
-        sumError.innerText = 'Invalid Youtube Link';
-        sumError.classList.remove('hidden');
-        return;
-    }
 
     switch (selectOption.value) {
         case 'sum-text':
@@ -114,18 +108,25 @@ async function summarize(event) {
                 sumError.classList.remove('hidden');
                 return;
             }
+        case 'sum-video':
+            regex = /^((((http)s?:\/\/)?((www\.)|(m\.))?youtube.com\/watch\?([^\?]*&)?v=.+)|(((http)s?:\/\/)?youtu.be\/([^\?=]+)(\?[^?]+)?))$/
+            if (!sumVideoInput.value.match(regex)) {
+                sumError.innerText = 'Invalid youtube link';
+                sumError.classList.remove('hidden');
+                return;
+            }
     }
 
     sumError.classList.add('hidden');
 
     // Here we can finally summarize data
+    summaryText.value = 'Please wait...';
     switch (selectOption.value) {
         case 'sum-text':
             extractText.value = sumTextInput.value.slice(0, MAX_SIZE);
             break;
         case 'sum-file':
             _extractFile();
-            summaryText.value = 'Please wait...';
             await (new Promise(resolve => setTimeout(resolve, 1000)));
             break;
         case 'sum-video':

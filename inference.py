@@ -24,7 +24,8 @@ def predict_emotions(text):
     emotions_list = {}
     for i in range(len(pred[0].tolist())):
         emotions_list[LABELS[i]] = round(100 * pred[0].tolist()[i], 3)
-    return emotions_list
+    return '\n'.join(f'{k}: {v}' for k, v in sorted(emotions_list.items(),
+                                                    key=lambda x: -x[1]))
 
 
 def test():
