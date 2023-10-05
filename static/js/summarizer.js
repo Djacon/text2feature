@@ -17,20 +17,21 @@ const sumError = document.getElementById("sum-err");
 const extractText = document.getElementById("extracted-text");
 const summaryText = document.getElementById("summarized-text");
 
-const MAX_SIZE = 5000;
+const MAX_SIZE = 20000;
 
 
 // In progress...
 function _summarize() {
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "https://www.editpad.org/tool/tool/summarizingTool", true);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.open("POST", "/predict_summarization", true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+ 
+    var data = JSON.stringify({ "sum_type": selectOption.value, "text": extractText.value });
 
-    var data = `text=${extractText.value}&percnt=40&modd=1&captha=0`;
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            var response = JSON.parse(xhr.responseText);
-            summaryText.value = response.content;
+            result = xhr.responseText.split("\\n").join("\n");
+            summaryText.value = result.slice(1, -1);
         }
     };
 
@@ -73,26 +74,15 @@ function _extractFile() {
     return;
 }
 
-// In progress...
-function _getCaptions(src) {
-    return src;
-}
-
 
 async function summarize(event) {
     event.preventDefault();
-    
-    if (selectOption.value === 'sum-video' && !sumVideoInput.value.startsWith('https://www.youtube.com/watch?v=')) {
-        sumError.innerText = 'Invalid Youtube Link';
-        sumError.classList.remove('hidden');
-        return;
-    }
 
     switch (selectOption.value) {
         case 'sum-text':
             len = sumTextInput.value.length
-            if (len < 100) {
-                sumError.innerText = `The text size should be at least 100 characters (${len} < 100)`;
+            if (len < 250) {
+                sumError.innerText = `The text size should be at least 100 characters (${len} < 250)`;
                 sumError.classList.remove('hidden');
                 return;
             }
@@ -112,25 +102,33 @@ async function summarize(event) {
                 sumError.classList.remove('hidden');
                 return;
             }
+            break;
+        case 'sum-video':
+            regex = /^((((http)s?:\/\/)?((www\.)|(m\.))?youtube.com\/watch\?([^\?]*&)?v=.+)|(((http)s?:\/\/)?youtu.be\/([^\?=]+)(\?[^?]+)?))$/
+            if (!sumVideoInput.value.match(regex)) {
+                sumError.innerText = 'Invalid youtube link';
+                sumError.classList.remove('hidden');
+                return;
+            }
+            break;
     }
 
     sumError.classList.add('hidden');
 
     // Here we can finally summarize data
+    summaryText.value = 'Please wait...';
     switch (selectOption.value) {
         case 'sum-text':
             extractText.value = sumTextInput.value.slice(0, MAX_SIZE);
             break;
         case 'sum-file':
             _extractFile();
-            summaryText.value = 'Please wait...';
             await (new Promise(resolve => setTimeout(resolve, 1000)));
             break;
         case 'sum-video':
-            _getCaptions(sumVideoInput.value);
+            extractText.value = sumVideoInput.value.slice(0, MAX_SIZE);
             break;
     }
-
     _summarize();
 }
 

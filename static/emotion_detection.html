@@ -30,8 +30,8 @@
             class="fixed inset-y-0 left-0 z-30 w-64 px-4 overflow-y-auto transition duration-200 transform bg-white border-r border-gray-100 lg:translate-x-0 lg:relative lg:inset-0 ">
             <div class="mt-8">
                 <a href="index.html" class="flex items-center">
-                    <img class="w-auto h-8" src="images/favicon.svg" alt="logo">
-                    <span class="mx-3 mt-1 font-medium text-lg">Text2<span style="color: #ffa116">Feature</span></span>
+                    <img class="w-auto h-8 no-invert" src="images/favicon.svg" alt="logo">
+                    <span class="mx-3 mt-1 font-medium text-lg">Text2<span class="no-invert" style="color: #ffa116">Feature</span></span>
                 </a>
             </div>
 
@@ -104,6 +104,16 @@
                         </svg>
                         <span class="mx-3 font-medium">Visit Main Website</span>
                     </a>
+
+                    <button class="flex items-center px-4 py-2 text-gray-500 transition-colors duration-300 transform rounded-lg hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
+                        onclick="change_theme()">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M13 10V14H19V10H13ZM11 10H5V14H11V10ZM13 19H19V16H13V19ZM11 19V16H5V19H11ZM13 5V8H19V5H13ZM11 5H5V8H11V5ZM19 3C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3H19Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <span id='theme-span' class="mx-3 font-medium">Set Light Theme</span>
+                    </button>
                 </div>
             </nav>
         </div>
@@ -137,7 +147,7 @@
                                 </style>
 
                                 <input id="search" x-model="search" type="text"
-                                    class="w-64 h-10 py-2 pl-10 pr-4 text-gray-700 placeholder-gray-400 transition-all duration-150 bg-white border border-gray-200 rounded-md focus:w-80 sm:w-64 sm:focus:w-80 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
+                                    class="w-44 h-10 py-2 pl-10 pr-4 text-gray-700 placeholder-gray-400 transition-all duration-150 bg-white border border-gray-200 rounded-md focus:w-80 sm:w-64 sm:focus:w-80 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
                                     placeholder="Find anything...">
                             </div>
 
@@ -193,15 +203,15 @@
                                 <img class="flex-shrink-0 object-cover w-8 h-8 rounded-full" src="images/github-mark.svg" alt="github-mark">
                             </button>
                 
-                            <div class="absolute right-0 z-20 w-56 py-2 mt-2 overflow-hidden bg-white rounded-md shadow-xl rtl:right-auto rtl:left-0" x-show="dropdownOpen" x-transition:enter="transition ease-out duration-100 transform" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-75 transform" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" @click.away="dropdownOpen = false" style="display: none;">
-                                <a target="_blank" href="https://github.com/Djacon/text2feature" class="flex items-center p-3 -mt-2 text-sm text-gray-600 transition-colors duration-200 transform hover:bg-gray-100">
+                            <a href="https://github.com/Djacon/text2feature" target="_blank" class="absolute right-0 z-20 w-56 py-2 mt-2 overflow-hidden bg-white rounded-md shadow-xl rtl:right-auto rtl:left-0 hover:bg-gray-100" x-show="dropdownOpen" x-transition:enter="transition ease-out duration-100 transform" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-75 transform" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" @click.away="dropdownOpen = false" style="display: none;">
+                                <div class="flex items-center p-3 -mt-2 text-sm text-gray-600 transition-colors duration-200 transform">
                                     <img class="flex-shrink-0 object-cover mx-1 rounded-full w-9 h-9" src="images/github-mark.svg" alt="github-mark">
                                     <div class="mx-1">
                                         <h1 class="text-sm font-semibold text-gray-700">Made By Djacon</h1>
                                         <p class="text-sm text-gray-500">github.com/Djacon</p>
                                     </div>
-                                </a>
-                            </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -215,7 +225,7 @@
                         <div class="hidden mt-3 overflow-y-auto text-sm lg:items-center lg:flex whitespace-nowrap">
                             <a class="text-gray-600">Pages</a>
                             <span class="mx-1 text-gray-500">/</span>
-                            <a href="" class="hover:underline" style="color: #ffa116">Emotion_Detection</a>
+                            <a href="" class="hover:underline no-invert" style="color: #ffa116">Emotion_Detection</a>
                         </div>
                     </div>
 
@@ -230,7 +240,6 @@
                                         class="block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
                                         <option value="sum-text">Identify Text</option>
                                         <option value="sum-file">Identify File</option>
-                                        <option value="sum-video">Identify Youtube Video</option>
                                     </select>
                                 </div>
 
@@ -256,11 +265,6 @@
                                     </label>
                                 </div>
 
-                                <div id="sum-video-div" class="hidden">
-                                    <label for="video" class="block text-sm text-gray-700 capitalize">Youtube link</label>
-                                    <input id="sum-video-input" placeholder="youtube.com/watch?v=dQw4w9WgXcQ"
-                                        class="block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
-                                </div>
                                 <p id='sum-err' class="hidden mt-2 text-sm text-red-500">Your password is too short.</p>
 
                                 <div class="flex justify-end">
@@ -275,7 +279,7 @@
                                             box-shadow: 0 0 5px 2px rgb(255, 188, 87);
                                         }
                                     </style>
-                                    <button id="submit" type="button" class="w-full flex items-center justify-center px-2 py-2 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-200 transform rounded-md focus:outline-none">
+                                    <button id="submit" type="button" class="no-invert w-full flex items-center justify-center px-2 py-2 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-200 transform rounded-md focus:outline-none">
                                         <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -296,7 +300,7 @@
                                 <div class="w-full md:w-1/2 grid-cols-2 mt-6">
                                     <label for="description"
                                         class="block text-sm text-gray-700 capitalize">Extracted Text</label>
-                                    <textarea disabled id="extracted-text"
+                                    <textarea id="extracted-text"
                                         class="minh-text block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
                                         style="min-height: 250px;"></textarea>
                                 </div>
@@ -304,7 +308,7 @@
                                 <div class="w-full md:w-1/2 grid-cols-2 mt-6">
                                     <label for="description"
                                         class="block text-sm text-gray-700 capitalize">Emotion Prediction</label>
-                                    <textarea disabled id="summarized-text"
+                                    <textarea id="summarized-text"
                                         class="minh-text block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
                                         style="min-height: 250px;"></textarea>
                                 </div>
@@ -315,6 +319,30 @@
             </main>
         </div>
     </div>
+
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            localStorage.theme = 'dark';
+            document.documentElement.classList.add('dark');
+            document.getElementById('theme-span').innerText = 'Set Light Theme';
+        } else {
+            localStorage.theme = 'light';
+            document.documentElement.classList.remove('dark');
+            document.getElementById('theme-span').innerText = 'Set Dark Theme';
+        }
+
+        function change_theme() {
+            if (localStorage.theme === 'dark') {
+                localStorage.theme = 'light';
+                document.documentElement.classList.remove('dark');
+                document.getElementById('theme-span').innerText = 'Set Dark Theme';
+            } else {
+                localStorage.theme = 'dark';
+                document.documentElement.classList.add('dark');
+                document.getElementById('theme-span').innerText = 'Set Light Theme';
+            }
+        }
+    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js"></script>
     <script src="js/detection.js"></script>

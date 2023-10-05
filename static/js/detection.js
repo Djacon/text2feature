@@ -30,7 +30,6 @@ function _summarize() {
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             result = xhr.responseText.split("\\n").join("\n");
-            // result = Object.entries(JSON.parse(resp)).sort((a, b) => b[1] - a[1]).map(a => a[0]+': '+a[1]).join('\n');
             summaryText.value = result.slice(1, -1);
         }
     };

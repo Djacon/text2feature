@@ -797,6 +797,10 @@ select {
     width: 8rem
 }
 
+.w-44 {
+    width: 11rem
+}
+
 .w-6 {
     width: 1.5rem
 }
@@ -2389,4 +2393,21 @@ select {
     .\32xl\:max-w-2xl {
         max-width: 42rem
     }
+}
+
+
+/* .dark-bg {
+    background-color: #1a1a1a;
+}
+
+.dark-nav {
+    background-color: #282828;
+} */
+
+.dark {
+    filter: invert(90%);
+}
+
+.dark .no-invert {
+    filter: invert(90%);
 }

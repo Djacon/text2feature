@@ -2,7 +2,7 @@ import re
 from youtube_transcript_api import YouTubeTranscriptApi
 from youtube_transcript_api._errors import TranscriptsDisabled
 
-MAX_SIZE = 25_000
+MAX_SIZE = 20_000
 YT_REGEX = r'^((http)s?:\/\/)?((www\.)|(m\.))?youtube.com\/watch\?([^\?]*&)?v=.+$'  # noqa
 YT_REGEX_SHORT = r'^((http)s?:\/\/)?youtu.be\/([^\?=]+)(\?[^?]+)?$'
 
@@ -33,8 +33,8 @@ def get_youtube_caption(url: str) -> str:
             res.append(transcript['text'])
             size += len(transcript['text'])
             if size >= MAX_SIZE:
-                return ' '.join(res)
-        return ' '.join(res)
+                return '\n'.join(res)[:MAX_SIZE]
+        return '\n'.join(res)[:MAX_SIZE]
     except TranscriptsDisabled:
         return 'no-cap'
     except Exception:
