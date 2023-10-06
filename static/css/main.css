@@ -2404,10 +2404,20 @@ select {
     background-color: #282828;
 } */
 
+#submit {
+    background-color: #ffa116;
+}
+#submit:hover {
+    background-color: #fcb140;
+}
+#submit:focus {
+    box-shadow: 0 0 5px 2px rgb(255, 188, 87);
+}
+
 .dark {
-    filter: invert(90%);
+    filter: invert(92%);
 }
 
 .dark .no-invert {
-    filter: invert(90%);
+    filter: invert(92%);
 }

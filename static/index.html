@@ -105,13 +105,8 @@
                         <span class="mx-3 font-medium">Visit Main Website</span>
                     </a>
 
-                    <button class="flex items-center px-4 py-2 text-gray-500 transition-colors duration-300 transform rounded-lg hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
-                        onclick="change_theme()">
-                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M13 10V14H19V10H13ZM11 10H5V14H11V10ZM13 19H19V16H13V19ZM11 19V16H5V19H11ZM13 5V8H19V5H13ZM11 5H5V8H11V5ZM19 3C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3H19Z"
-                                fill="currentColor"></path>
-                        </svg>
+                    <button id="theme-btn" class="flex items-center px-4 py-2 text-gray-500 transition-colors duration-300 transform rounded-lg hover:text-gray-600 hover:bg-gray-100 bg-opacity-40">
+                        <img id="img-theme" src="images/sun.svg" width="24" height="24">
                         <span id='theme-span' class="mx-3 font-medium">Set Light Theme</span>
                     </button>
                 </div>
@@ -793,29 +788,7 @@
         </div>
     </div>
 
-    <script>
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            localStorage.theme = 'dark';
-            document.documentElement.classList.add('dark');
-            document.getElementById('theme-span').innerText = 'Set Light Theme';
-        } else {
-            localStorage.theme = 'light';
-            document.documentElement.classList.remove('dark');
-            document.getElementById('theme-span').innerText = 'Set Dark Theme';
-        }
-
-        function change_theme() {
-            if (localStorage.theme === 'dark') {
-                localStorage.theme = 'light';
-                document.documentElement.classList.remove('dark');
-                document.getElementById('theme-span').innerText = 'Set Dark Theme';
-            } else {
-                localStorage.theme = 'dark';
-                document.documentElement.classList.add('dark');
-                document.getElementById('theme-span').innerText = 'Set Light Theme';
-            }
-        }
-    </script>
+    <script src="js/theme.js"></script>
 </body>
 
 </html>

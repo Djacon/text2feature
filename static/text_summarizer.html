@@ -105,13 +105,8 @@
                         <span class="mx-3 font-medium">Visit Main Website</span>
                     </a>
 
-                    <button class="flex items-center px-4 py-2 text-gray-500 transition-colors duration-300 transform rounded-lg hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
-                        onclick="change_theme()">
-                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M13 10V14H19V10H13ZM11 10H5V14H11V10ZM13 19H19V16H13V19ZM11 19V16H5V19H11ZM13 5V8H19V5H13ZM11 5H5V8H11V5ZM19 3C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3H19Z"
-                                fill="currentColor"></path>
-                        </svg>
+                    <button id="theme-btn" class="flex items-center px-4 py-2 text-gray-500 transition-colors duration-300 transform rounded-lg hover:text-gray-600 hover:bg-gray-100 bg-opacity-40">
+                        <img id="img-theme" src="images/sun.svg" width="24" height="24">
                         <span id='theme-span' class="mx-3 font-medium">Set Light Theme</span>
                     </button>
                 </div>
@@ -119,7 +114,7 @@
         </div>
 
         <div class="flex flex-col flex-1 overflow-hidden bg-gray-100">
-            <header class="bg-white border-b border-gray-100">
+            <header class="static bg-white border-b border-gray-100">
                 <div class="flex items-center justify-between px-4 py-4 sm:px-6">
                     <div class="flex items-center">
                         <button @click="sidebarOpen = !sidebarOpen" class="text-gray-500 lg:hidden focus:outline-none">
@@ -239,7 +234,6 @@
                                     <select id="sum-type"
                                         class="block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
                                         <option value="sum-text">Summarize Text</option>
-                                        <option value="sum-file">Summarize File</option>
                                         <option value="sum-video">Summarize Youtube Video</option>
                                     </select>
                                 </div>
@@ -248,22 +242,7 @@
                                     <label for="description"
                                         class="block text-sm text-gray-700 capitalize">description</label>
                                     <textarea id="sum-text-input" required class="block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
-                                    style="min-height: 300px;"></textarea>
-                                </div>
-
-                                <div id="sum-file-div" class="hidden">
-                                    <label for="image" class="block text-sm text-gray-700 capitalize">file</label>
-                                    <label  
-                                        class="flex flex-col items-center justify-center w-full h-32 mt-2 text-gray-500 border-2 border-dashed rounded-md cursor-pointer hover:text-gray-600">
-                                        <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 20 20">
-                                            <path
-                                                d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z">
-                                            </path>
-                                        </svg>
-                                        <span class="mt-4">Select File</span>
-                                        <input id="sum-file-input" type="file" accept=".pdf, .txt" class="hidden">
-                                    </label>
+                                    style="min-height: 250px;" placeholder="Enter or upload your text and press &quot;Summarize&quot;"></textarea>
                                 </div>
 
                                 <div id="sum-video-div" class="hidden">
@@ -271,29 +250,24 @@
                                     <input id="sum-video-input" placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ" type="url"
                                         class="block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
                                 </div>
-                                <p id='sum-err' class="hidden mt-2 text-sm text-red-500">Your password is too short.</p>
 
-                                <div class="flex justify-end">
-                                    <style>
-                                        #submit {
-                                            background-color: #ffa116;
-                                        }
-                                        #submit:hover {
-                                            background-color: #fcb140;
-                                        }
-                                        #submit:focus {
-                                            box-shadow: 0 0 5px 2px rgb(255, 188, 87);
-                                        }
-                                    </style>
-                                    <button id="submit" type="button" class="no-invert w-full flex items-center justify-center px-2 py-2 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-200 transform rounded-md focus:outline-none">
-                                        <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                            <g id="SVGRepo_iconCarrier">
-                                              <path d="M7 10L12 15L17 10" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                            </g>
-                                          </svg>
-                                        <span class="mx-1">Summarize</span>
+                                <p id='sum-err' class="no-invert hidden mt-2 text-sm text-red-500"></p>
+
+                                <div class="flex justify-between no-invert">
+                                    <label id="word-counter" class="hidden flex items-center py-2 px-4 text-gray-500 rounded">Words:</label>
+                                    <label id="sum-file-div" class="flex items-center py-2 px-4 text-gray-500 rounded cursor-pointer hover:text-gray-700">
+                                        <svg class="w-6 h-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20">
+                                            <path
+                                                d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z">
+                                            </path>
+                                        </svg>
+                                        <span class="px-2">Upload</span>
+                                        <input id="sum-file-input" type="file" accept=".pdf, .txt" class="hidden">
+                                    </label>
+                                    <button id="submit" class="w-32 sm:w-80 flex items-center justify-center py-2 px-4 rounded font-medium text-white rounded-full"
+                                        style="max-height: 2.5rem;">
+                                        Summarize
                                     </button>
                                 </div>
                             </form>
@@ -307,8 +281,7 @@
                                     <label for="description"
                                         class="block text-sm text-gray-700 capitalize">Extracted Text</label>
                                     <textarea id="extracted-text"
-                                        class="minh-text block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
-                                        style="min-height: 300px;"></textarea>
+                                        class="minh-text block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"></textarea>
                                 </div>
 
                                 <div class="w-full md:w-1/2 grid-cols-2 mt-6">
@@ -316,7 +289,7 @@
                                         class="block text-sm text-gray-700 capitalize">Summarized Text</label>
                                     <textarea id="summarized-text"
                                         class="minh-text block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
-                                        style="min-height: 300px;"></textarea>
+                                        style="min-height: 250px;"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -326,30 +299,7 @@
         </div>
     </div>
 
-    <script>
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            localStorage.theme = 'dark';
-            document.documentElement.classList.add('dark');
-            document.getElementById('theme-span').innerText = 'Set Light Theme';
-        } else {
-            localStorage.theme = 'light';
-            document.documentElement.classList.remove('dark');
-            document.getElementById('theme-span').innerText = 'Set Dark Theme';
-        }
-
-        function change_theme() {
-            if (localStorage.theme === 'dark') {
-                localStorage.theme = 'light';
-                document.documentElement.classList.remove('dark');
-                document.getElementById('theme-span').innerText = 'Set Dark Theme';
-            } else {
-                localStorage.theme = 'dark';
-                document.documentElement.classList.add('dark');
-                document.getElementById('theme-span').innerText = 'Set Light Theme';
-            }
-        }
-    </script>
-
+    <script src="js/theme.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js"></script>
     <script src="js/summarizer.js"></script>
 </body>
