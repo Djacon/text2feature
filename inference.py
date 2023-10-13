@@ -1,6 +1,6 @@
 import torch
-import requests
 from transformers import BertForSequenceClassification, AutoTokenizer
+from transformers import PegasusForConditionalGeneration, PegasusTokenizer
 
 # path_emo = 'Djacon/rubert-tiny2-russian-emotion-detection'
 path_emo = './models/emotion_detection/'
@@ -29,21 +29,16 @@ def predict_emotions(text: str) -> str:
                                                     key=lambda x: -x[1]))
 
 
+path_sum = './models/summarizer/'
+model_sum = PegasusForConditionalGeneration.from_pretrained(path_sum)
+tokenizer_sum = PegasusTokenizer.from_pretrained(path_sum)
+
+
 def predict_summarization(text: str) -> str:
-    url = "https://www.editpad.org/tool/tool/summarizingTool"
-    headers = {"Content-Type": "application/x-www-form-urlencoded"}
-
-    data = {"text": text, "modd": 1, "captha": 0, 'percnt': 10,
-            "max-length": len(text) / 10}
-
-    response = requests.post(url, headers=headers, data=data)
-
-    if response.status_code != 200:
-        return 'err'
-
-    response_json = response.json()
-    print(len(response_json.get('content')), len(text))
-    return response_json.get("content", 'err')
+    batch = tokenizer_sum([text], truncation=True, padding="longest",
+                          return_tensors="pt")
+    translated = model_sum.generate(**batch)
+    return tokenizer_sum.batch_decode(translated, skip_special_tokens=True)[0]
 
 
 def test():

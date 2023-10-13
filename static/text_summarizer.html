@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="canonical" href="">
     <title>Text2Feature | Summarizer</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-    <script defer src="js/main.js"></script>
+    <link rel="stylesheet" href="files/css/main.css">
+    <link rel="icon" type="image/svg+xml" href="files/images/favicon.svg">
+    <script defer src="files/js/main.js"></script>
 </head>
 
 <body class="overflow-hidden">
@@ -29,8 +29,8 @@
         <div x-cloak :class="sidebarOpen ? 'translate-x-0 ease-in' : '-translate-x-full ease-out'"
             class="fixed inset-y-0 left-0 z-30 w-64 px-4 overflow-y-auto transition duration-200 transform bg-white border-r border-gray-100 lg:translate-x-0 lg:relative lg:inset-0 ">
             <div class="mt-8">
-                <a href="index.html" class="flex items-center">
-                    <img class="w-auto h-8 no-invert" src="images/favicon.svg" alt="logo">
+                <a href="/" class="flex items-center">
+                    <img class="w-auto h-8 no-invert" src="files/images/favicon.svg" alt="logo">
                     <span class="mx-3 mt-1 font-medium text-lg">Text2<span class="no-invert" style="color: #ffa116">Feature</span></span>
                 </a>
             </div>
@@ -42,7 +42,7 @@
                     <h3 class="px-4 text-sm tracking-wider text-gray-400 uppercase">PAGES</h3>
 
                     <a class="flex items-center px-4 py-2 text-gray-500 transition-colors duration-200 transform rounded-lg hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
-                        href="index.html">
+                        href="/">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -52,7 +52,7 @@
                     </a>
 
                     <a class="flex items-center px-4 py-2 text-gray-600 transition-colors duration-300 transform bg-gray-200 rounded-lg bg-opacity-40"
-                        href="text_summarizer.html">
+                        href="text_summarizer">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -62,7 +62,7 @@
                     </a>
 
                     <a class="flex items-center px-4 py-2 text-gray-500 transition-colors duration-300 transform rounded-lg hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
-                        href="emotion_detection.html">
+                        href="emotion_detection">
                         <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M9 16C9.85038 16.6303 10.8846 17 12 17C13.1154 17 14.1496 16.6303 15 16" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
                             <path d="M16 10.5C16 11.3284 15.5523 12 15 12C14.4477 12 14 11.3284 14 10.5C14 9.67157 14.4477 9 15 9C15.5523 9 16 9.67157 16 10.5Z" fill="#1C274C"/>
@@ -73,13 +73,15 @@
                     </a>
 
                     <a class="flex items-center px-4 py-2 text-gray-500 transition-colors duration-300 transform rounded-lg hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
-                        href="">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                        </svg>
-                        <span class="mx-3 font-medium capitalize">Project 3</span>
+                        href="analytics">
+                        <svg fill="currentColor" width="24px" height="24px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                              <path d="M29.5 7c-1.381 0-2.5 1.12-2.5 2.5 0 0.284 0.058 0.551 0.144 0.805l-6.094 5.247c-0.427-0.341-0.961-0.553-1.55-0.553-0.68 0-1.294 0.273-1.744 0.713l-4.774-2.39c-0.093-1.296-1.162-2.323-2.482-2.323-1.38 0-2.5 1.12-2.5 2.5 0 0.378 0.090 0.732 0.24 1.053l-4.867 5.612c-0.273-0.102-0.564-0.166-0.873-0.166-1.381 0-2.5 1.119-2.5 2.5s1.119 2.5 2.5 2.5c1.381 0 2.5-1.119 2.5-2.5 0-0.332-0.068-0.649-0.186-0.939l4.946-5.685c0.236 0.073 0.48 0.124 0.74 0.124 0.727 0 1.377-0.316 1.834-0.813l4.669 2.341c0.017 1.367 1.127 2.471 2.497 2.471 1.381 0 2.5-1.119 2.5-2.5 0-0.044-0.011-0.086-0.013-0.13l6.503-5.587c0.309 0.137 0.649 0.216 1.010 0.216 1.381 0 2.5-1.119 2.5-2.5s-1.119-2.5-2.5-2.5z"></path>
+                            </g>
+                          </svg>
+                        <span class="mx-3 font-medium capitalize">Analytics</span>
                     </a>
 
                     <a class="flex items-center px-4 py-2 text-gray-500 transition-colors duration-300 transform rounded-lg hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
@@ -106,7 +108,7 @@
                     </a>
 
                     <button id="theme-btn" class="flex items-center px-4 py-2 text-gray-500 transition-colors duration-300 transform rounded-lg hover:text-gray-600 hover:bg-gray-100 bg-opacity-40">
-                        <img id="img-theme" src="images/sun.svg" width="24" height="24">
+                        <img id="img-theme" src="files/images/sun.svg" width="24" height="24">
                         <span id='theme-span' class="mx-3 font-medium">Set Light Theme</span>
                     </button>
                 </div>
@@ -159,18 +161,18 @@
                                     <h3 class="px-5 text-xs tracking-wider text-gray-500 uppercase">Projects</h3>
                                     <div class="mt-2">
                                         <a class="block px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 transform sm:px-12 hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
-                                            href="text_summarizer.html">
+                                            href="text_summarizer">
                                             Text Summarizer
                                         </a>
 
                                         <a class="block px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 transform sm:px-12 hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
-                                            href="emotion_detection.html">
+                                            href="emotion_detection">
                                             Emotion Detection
                                         </a>
 
                                         <a class="block px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 transform sm:px-12 hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
-                                            href="">
-                                            Project 3
+                                            href="analytics">
+                                            Analytics
                                         </a>
 
                                         <a class="block px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 transform sm:px-12 hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
@@ -195,12 +197,12 @@
                     <div class="flex items-center">
                         <div x-data="{ dropdownOpen: false }" class="relative inline-block">
                             <button @click="dropdownOpen = ! dropdownOpen" class="relative z-10 flex items-center flex-shrink-0 text-sm text-gray-600 focus:outline-none">
-                                <img class="flex-shrink-0 object-cover w-8 h-8 rounded-full" src="images/github-mark.svg" alt="github-mark">
+                                <img class="flex-shrink-0 object-cover w-8 h-8 rounded-full" src="files/images/github-mark.svg" alt="github-mark">
                             </button>
                 
                             <a href="https://github.com/Djacon/text2feature" target="_blank" class="absolute right-0 z-20 w-56 py-2 mt-2 overflow-hidden bg-white rounded-md shadow-xl rtl:right-auto rtl:left-0 hover:bg-gray-100" x-show="dropdownOpen" x-transition:enter="transition ease-out duration-100 transform" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-75 transform" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" @click.away="dropdownOpen = false" style="display: none;">
                                 <div class="flex items-center p-3 -mt-2 text-sm text-gray-600 transition-colors duration-200 transform">
-                                    <img class="flex-shrink-0 object-cover mx-1 rounded-full w-9 h-9" src="images/github-mark.svg" alt="github-mark">
+                                    <img class="flex-shrink-0 object-cover mx-1 rounded-full w-9 h-9" src="files/images/github-mark.svg" alt="github-mark">
                                     <div class="mx-1">
                                         <h1 class="text-sm font-semibold text-gray-700">Made By Djacon</h1>
                                         <p class="text-sm text-gray-500">github.com/Djacon</p>
@@ -225,10 +227,17 @@
                     </div>
 
                     <div class="mt-6">
-                        <div class="w-full p-4 bg-white rounded-lg xl:p-6">
-                            <h1 class="text-lg font-medium text-gray-700 capitalize sm:text-xl md:text-2xl">Upload text</h1>
-
-                            <form id='sum-form' class="mt-6 space-y-5" onsubmit="return false;">
+                        <div class="w-full p-4 bg-white xl:p-6">
+                            <ul class="flex text-sm text-center text-gray-500 divide-x divide-gray-200">
+                                <li class="w-full">
+                                    <button id="show-original" class="bg-gray-100 rounded-l-lg inline-block w-full p-2 text-gray-900 focus:ring-4 focus:ring-blue-300 focus:outline-none">Original</button>
+                                </li>
+                                <li class="w-full">
+                                    <button id="show-summary" class="inline-block rounded-r-lg w-full p-2 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none">Summary</button>
+                                </li>
+                            </ul>
+                            
+                            <div id='sum-original' class="mt-6 space-y-5">
                                 <div>
                                     <label for="sum-type" class="block text-sm text-gray-700 capitalize">Select Type</label>
                                     <select id="sum-type"
@@ -270,13 +279,9 @@
                                         Summarize
                                     </button>
                                 </div>
-                            </form>
-                        </div>
+                            </div>
 
-                        <div class="w-full p-4 mt-8 bg-white rounded-lg xl:p-6">
-                            <h1 class="text-lg font-medium text-gray-700 capitalize sm:text-xl md:text-2xl">Result</h1>
-
-                            <div class="md:flex gap-8">
+                            <div id="sum-summary" class='hidden mt-6 space-y-5'>
                                 <div class="w-full md:w-1/2 grid-cols-2 mt-6 hidden">
                                     <label for="description"
                                         class="block text-sm text-gray-700 capitalize">Extracted Text</label>
@@ -285,8 +290,6 @@
                                 </div>
 
                                 <div class="w-full md:w-1/2 grid-cols-2 mt-6">
-                                    <label for="description"
-                                        class="block text-sm text-gray-700 capitalize">Summarized Text</label>
                                     <textarea id="summarized-text"
                                         class="minh-text block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
                                         style="min-height: 250px;"></textarea>
@@ -299,8 +302,8 @@
         </div>
     </div>
 
-    <script src="js/theme.js"></script>
+    <script src="files/js/theme.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js"></script>
-    <script src="js/summarizer.js"></script>
+    <script src="files/js/summarizer.js"></script>
 </body>
 </html>

@@ -1,21 +1,38 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from pydantic import BaseModel
-from fastapi.responses import RedirectResponse
+from jinja2 import TemplateNotFound
+from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
 
 from youtube import get_youtube_caption
 from inference import predict_emotions, predict_summarization
 
 MAX_ITER_SIZE = 3000
 
-app = FastAPI()
+app = FastAPI(docs_url=None, redoc_url=None)
+app.mount("/files", StaticFiles(directory="files"), name="files")
+templates = Jinja2Templates(directory="static")
 
-app.mount("/static", StaticFiles(directory='static', html=True))
+
+@app.exception_handler(TemplateNotFound)
+async def not_found_exception_handler(request: Request, exc: TemplateNotFound):
+    return templates.TemplateResponse("404.html", {"request": request},
+                                      status_code=404)
 
 
-@app.get('/')
-async def redirect_to_static_index():
-    return RedirectResponse(url='/static/index.html')
+@app.get("/", response_class=HTMLResponse)
+async def read_homepage(request: Request):
+    return templates.TemplateResponse(f"index.html", {"request": request,
+                                                      "page": "index"})
+
+
+@app.get("/{page}", response_class=HTMLResponse)
+async def read_html(request: Request, page: str = 'index'):
+    if page.endswith(".html"):
+        page = page[:-5]
+    return templates.TemplateResponse(f"{page}.html", {"request": request,
+                                                       "page": page})
 
 
 class EmotionRequest(BaseModel):
