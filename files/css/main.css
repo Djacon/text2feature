@@ -2413,15 +2413,6 @@ select {
     }
 }
 
-
-/* .dark-bg {
-    background-color: #1a1a1a;
-}
-
-.dark-nav {
-    background-color: #282828;
-} */
-
 #submit {
     background-color: #ffa116;
 }
@@ -2448,4 +2439,24 @@ select {
 
 .dark .no-invert {
     filter: invert(92%);
+}
+
+.dark .dark-block {
+    background-color: #ececec;
+}
+
+.github-block {
+    border-color: #ececec;
+}
+
+.dark .github-block {
+    border-color: rgb(255, 255, 255);
+}
+
+.text-original { 
+    color: black;
+}
+
+.dark .bg-gray-200 {
+    background-color: #f3f4f6;
 }

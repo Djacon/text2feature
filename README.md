@@ -1,4 +1,4 @@
----
+<!-- ---
 title: Emotion Detection
 emoji: 🐠
 colorFrom: blue
@@ -6,7 +6,7 @@ colorTo: yellow
 sdk: docker
 pinned: false
 license: mit
----
+--- -->
 
 # Text2Feature
 Powerful text mining tool. Convert raw text into clean using modern technologies of NLP and AI

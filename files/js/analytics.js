@@ -363,9 +363,9 @@ function addChart(chartID, name, info) {
 
     const newChartDiv = document.createElement('div');
     newChartDiv.id = `col-${chartID}`;
-    newChartDiv.className = 'cols p-4 mt-4 w-full overflow-hidden bg-white rounded-lg';
+    newChartDiv.className = 'cols dark-block p-4 mt-4 w-full overflow-hidden bg-white rounded-lg';
     newChartDiv.innerHTML = `
-        <div class="w-full p-4 bg-white rounded-lg xl:p-6">
+        <div class="dark-block w-full p-4 bg-white rounded-lg xl:p-6">
             <h1 class="text-lg font-medium text-gray-700 capitalize sm:text-xl md:text-2xl">${name}</h1>
             <div class="grid gap-12 mt-8 sm:grid-cols-2">
                 <div id="tooltip-${chartID}" class="rounded-lg" style="position: absolute; display: none; background-color: black; color: white; border: 1px solid black; padding: 5px; z-index: 1;"></div>
@@ -376,7 +376,7 @@ function addChart(chartID, name, info) {
                         <li>
                             <span class="absolute top-4 left-4 rtl:right-4 rtl:left-auto -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true"></span>
                             <div class="relative flex">
-                                <span class="flex items-center justify-center w-8 h-8 bg-white rounded-full ring-8 ring-white">
+                                <span class="flex items-center justify-center w-8 h-8">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-indigo-600 no-invert" viewBox="0 0 20 20" fill="currentColor">
                                         <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"></path>
                                     </svg>

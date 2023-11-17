@@ -27,7 +27,7 @@
             class="fixed inset-0 z-20 transition-opacity bg-black opacity-50 lg:hidden"></div>
 
         <div x-cloak :class="sidebarOpen ? 'translate-x-0 ease-in' : '-translate-x-full ease-out'"
-            class="fixed inset-y-0 left-0 z-30 w-64 px-4 overflow-y-auto transition duration-200 transform bg-white border-r border-gray-100 lg:translate-x-0 lg:relative lg:inset-0 ">
+            class="dark-block fixed inset-y-0 left-0 z-30 w-64 px-4 overflow-y-auto transition duration-200 transform bg-white border-r border-gray-100 lg:translate-x-0 lg:relative lg:inset-0 ">
             <div class="mt-8">
                 <a href="/" class="flex items-center">
                     <img class="w-auto h-8 no-invert" src="files/images/favicon.svg" alt="logo">
@@ -116,7 +116,7 @@
         </div>
 
         <div class="flex flex-col flex-1 overflow-hidden bg-gray-100">
-            <header class="bg-white border-b border-gray-100">
+            <header class="dark-block bg-white border-b border-gray-100">
                 <div class="flex items-center justify-between px-4 py-4 sm:px-6">
                     <div class="flex items-center">
                         <button @click="sidebarOpen = !sidebarOpen" class="text-gray-500 lg:hidden focus:outline-none">
@@ -137,18 +137,12 @@
                                     </svg>
                                 </span>
 
-                                <style>
-                                    #search:focus {
-                                        border: 1px solid #ffa116;
-                                    }
-                                </style>
-
                                 <input id="search" x-model="search" type="text"
-                                    class="w-44 h-10 py-2 pl-10 pr-4 text-gray-700 placeholder-gray-400 transition-all duration-150 bg-white border border-gray-200 rounded-md focus:w-80 sm:w-64 sm:focus:w-80 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
+                                    class="w-44 h-10 py-2 pl-10 pr-4 text-gray-700 placeholder-gray-400 transition-all duration-150 bg-white border border-gray-200 rounded-md focus:w-80 sm:w-64 sm:focus:w-80"
                                     placeholder="Find anything...">
                             </div>
 
-                            <div class="absolute right-0 z-20 w-full py-2 mt-2 space-y-4 overflow-hidden bg-white rounded-md shadow-xl"
+                            <div class="dark-block absolute right-0 z-20 w-full py-2 mt-2 space-y-4 overflow-hidden bg-white rounded-md shadow-xl"
                                 x-show="search.length > 0" x-cloak
                                 x-transition:enter="transition ease-out duration-100 transform"
                                 x-transition:enter-start="opacity-0 scale-95"
@@ -199,9 +193,9 @@
                             <button @click="dropdownOpen = ! dropdownOpen" class="relative z-10 flex items-center flex-shrink-0 text-sm text-gray-600 focus:outline-none">
                                 <img class="flex-shrink-0 object-cover w-8 h-8 rounded-full" src="files/images/github-mark.svg" alt="github-mark">
                             </button>
-                
-                            <a href="https://github.com/Djacon/text2feature" target="_blank" class="absolute right-0 z-20 w-56 py-2 mt-2 overflow-hidden bg-white rounded-md shadow-xl rtl:right-auto rtl:left-0 hover:bg-gray-100" x-show="dropdownOpen" x-transition:enter="transition ease-out duration-100 transform" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-75 transform" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" @click.away="dropdownOpen = false" style="display: none;">
-                                <div class="flex items-center p-3 -mt-2 text-sm text-gray-600 transition-colors duration-200 transform">
+
+                            <a href="https://github.com/Djacon/text2feature" target="_blank" class="border github-block dark-block absolute right-0 z-20 w-56 py-1 mt-2 overflow-hidden bg-white rounded-md rtl:right-auto rtl:left-0" x-show="dropdownOpen" x-transition:enter="transition ease-out duration-100 transform" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-75 transform" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" @click.away="dropdownOpen = false" style="display: none;">
+                                <div class="flex items-center p-3 text-sm text-gray-600 transition-colors duration-200 transform">
                                     <img class="flex-shrink-0 object-cover mx-1 rounded-full w-9 h-9" src="files/images/github-mark.svg" alt="github-mark">
                                     <div class="mx-1">
                                         <h1 class="text-sm font-semibold text-gray-700">Made By Djacon</h1>
@@ -228,12 +222,12 @@
 
                     <div class="mt-6">
                         <section class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
-                            <div class="flex items-center justify-between px-6 py-3 bg-white rounded-lg shadow-sm">
+                            <div class="dark-block flex items-center justify-between px-6 py-3 bg-white rounded-lg shadow-sm">
                                 <div>
                                     <p class="font-medium text-gray-500">Today’s Users</p>
 
                                     <div class="flex items-end">
-                                        <h2 class="mt-1 text-2xl font-medium text-gray-800">23</h2>
+                                        <h2 class="mt-1 text-2xl font-medium text-original">23</h2>
                                         <span class="mx-2 text-red-500 no-invert">
                                             -15%
                                         </span>
@@ -249,12 +243,12 @@
                                 </div>
                             </div>
 
-                            <div class="flex items-center justify-between px-6 py-3 bg-white rounded-lg shadow-sm">
+                            <div class="dark-block flex items-center justify-between px-6 py-3 bg-white rounded-lg shadow-sm">
                                 <div>
                                     <p class="font-medium text-gray-500">Total Users</p>
 
                                     <div class="flex items-end">
-                                        <h2 class="mt-1 text-2xl font-medium text-gray-800">54</h2>
+                                        <h2 class="mt-1 text-2xl font-medium text-original">54</h2>
                                         <span class="mx-2 text-green-500 no-invert">
                                             +5%
                                         </span>
@@ -270,12 +264,12 @@
                                 </div>
                             </div>
 
-                            <div class="flex items-center justify-between px-6 py-3 bg-white rounded-lg shadow-sm">
+                            <div class="dark-block flex items-center justify-between px-6 py-3 bg-white rounded-lg shadow-sm">
                                 <div>
                                     <p class="font-medium text-gray-500">New Users</p>
 
                                     <div class="flex items-end">
-                                        <h2 class="mt-1 text-2xl font-medium text-gray-800">+15</h2>
+                                        <h2 class="mt-1 text-2xl font-medium text-original">+15</h2>
                                         <span class="mx-2 text-green-500 no-invert">
                                             +34%
                                         </span>
@@ -291,12 +285,12 @@
                                 </div>
                             </div>
 
-                            <div class="flex items-center justify-between px-6 py-3 bg-white rounded-lg shadow-sm">
+                            <div class="dark-block flex items-center justify-between px-6 py-3 bg-white rounded-lg shadow-sm">
                                 <div>
                                     <p class="font-medium text-gray-500">Total Projects</p>
 
                                     <div class="flex items-end">
-                                        <h2 class="mt-1 text-2xl font-medium text-gray-800">2</h2>
+                                        <h2 class="mt-1 text-2xl font-medium text-original">3</h2>
                                     </div>
                                 </div>
 
@@ -311,26 +305,26 @@
                         </section>
 
                         <section class="mt-6 space-y-6">
-                            <div class="w-full p-4 bg-white rounded-lg xl:p-6">
+                            <div class="dark-block w-full p-4 bg-white rounded-lg xl:p-6">
                                 <h1 class="text-lg font-medium sm:text-xl md:text-2xl">
                                     Welcome to Text2<span class="no-invert" style="color: #ffa116">Feature</span>!
                                 </h1>
-                                <p class="mt-4 text-gray-800">
+                                <p class="mt-4 text-original">
                                     – your gateway to the world of text processing and analysis! Our tools empower you to
                                     easily and swiftly process textual information from any source, be it files, web pages, or text data. We provide
                                     you with powerful instruments to search for and extract key 'features' within text, aiding you in extracting
                                     valuable insights and making informed decisions.
                                 </p>
-                                <p class="mt-4 text-gray-800">
+                                <p class="mt-4 text-original">
                                     With Text2Feature, you can:
                                 </p>
-                                <ul class="mt-2 text-gray-800" style="list-style-type: disc; list-style-position: inside;">
+                                <ul class="mt-2 text-original" style="list-style-type: disc; list-style-position: inside;">
                                     <li>Import and analyze text files in various formats.</li>
                                     <li>Search for and highlight important features within text for further exploration.</li>
                                     <li>Structure and organize your textual content for more effective analysis.</li>
                                     <li>Utilize a range of tools and methods for text processing and knowledge extraction.</li>
                                 </ul>
-                                <p class="mt-4 text-gray-800">
+                                <p class="mt-4 text-original">
                                     Join Text2Feature and transform text into valuable knowledge effortlessly. Get started now and bring your
                                     research and analytical ideas to life!
                                 </p>

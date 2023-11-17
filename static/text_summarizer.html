@@ -27,7 +27,7 @@
             class="fixed inset-0 z-20 transition-opacity bg-black opacity-50 lg:hidden"></div>
 
         <div x-cloak :class="sidebarOpen ? 'translate-x-0 ease-in' : '-translate-x-full ease-out'"
-            class="fixed inset-y-0 left-0 z-30 w-64 px-4 overflow-y-auto transition duration-200 transform bg-white border-r border-gray-100 lg:translate-x-0 lg:relative lg:inset-0 ">
+            class="dark-block fixed inset-y-0 left-0 z-30 w-64 px-4 overflow-y-auto transition duration-200 transform bg-white border-r border-gray-100 lg:translate-x-0 lg:relative lg:inset-0 ">
             <div class="mt-8">
                 <a href="/" class="flex items-center">
                     <img class="w-auto h-8 no-invert" src="files/images/favicon.svg" alt="logo">
@@ -117,7 +117,7 @@
 
         <div class="flex flex-col flex-1 overflow-hidden bg-gray-100">
             <header class="static bg-white border-b border-gray-100">
-                <div class="flex items-center justify-between px-4 py-4 sm:px-6">
+                <div class="dark-block flex items-center justify-between px-4 py-4 sm:px-6">
                     <div class="flex items-center">
                         <button @click="sidebarOpen = !sidebarOpen" class="text-gray-500 lg:hidden focus:outline-none">
                             <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -137,18 +137,12 @@
                                     </svg>
                                 </span>
 
-                                <style>
-                                    #search:focus {
-                                        border: 1px solid #ffa116;
-                                    }
-                                </style>
-
                                 <input id="search" x-model="search" type="text"
-                                    class="w-44 h-10 py-2 pl-10 pr-4 text-gray-700 placeholder-gray-400 transition-all duration-150 bg-white border border-gray-200 rounded-md focus:w-80 sm:w-64 sm:focus:w-80 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
+                                    class="w-44 h-10 py-2 pl-10 pr-4 text-gray-700 placeholder-gray-400 transition-all duration-150 bg-white border border-gray-200 rounded-md focus:w-80 sm:w-64 sm:focus:w-80"
                                     placeholder="Find anything...">
                             </div>
 
-                            <div class="absolute right-0 z-20 w-full py-2 mt-2 space-y-4 overflow-hidden bg-white rounded-md shadow-xl"
+                            <div class="dark-block absolute right-0 z-20 w-full py-2 mt-2 space-y-4 overflow-hidden bg-white rounded-md shadow-xl"
                                 x-show="search.length > 0" x-cloak
                                 x-transition:enter="transition ease-out duration-100 transform"
                                 x-transition:enter-start="opacity-0 scale-95"
@@ -199,9 +193,9 @@
                             <button @click="dropdownOpen = ! dropdownOpen" class="relative z-10 flex items-center flex-shrink-0 text-sm text-gray-600 focus:outline-none">
                                 <img class="flex-shrink-0 object-cover w-8 h-8 rounded-full" src="files/images/github-mark.svg" alt="github-mark">
                             </button>
-                
-                            <a href="https://github.com/Djacon/text2feature" target="_blank" class="absolute right-0 z-20 w-56 py-2 mt-2 overflow-hidden bg-white rounded-md shadow-xl rtl:right-auto rtl:left-0 hover:bg-gray-100" x-show="dropdownOpen" x-transition:enter="transition ease-out duration-100 transform" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-75 transform" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" @click.away="dropdownOpen = false" style="display: none;">
-                                <div class="flex items-center p-3 -mt-2 text-sm text-gray-600 transition-colors duration-200 transform">
+
+                            <a href="https://github.com/Djacon/text2feature" target="_blank" class="border github-block dark-block absolute right-0 z-20 w-56 py-1 mt-2 overflow-hidden bg-white rounded-md rtl:right-auto rtl:left-0" x-show="dropdownOpen" x-transition:enter="transition ease-out duration-100 transform" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-75 transform" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" @click.away="dropdownOpen = false" style="display: none;">
+                                <div class="flex items-center p-3 text-sm text-gray-600 transition-colors duration-200 transform">
                                     <img class="flex-shrink-0 object-cover mx-1 rounded-full w-9 h-9" src="files/images/github-mark.svg" alt="github-mark">
                                     <div class="mx-1">
                                         <h1 class="text-sm font-semibold text-gray-700">Made By Djacon</h1>
@@ -227,13 +221,13 @@
                     </div>
 
                     <div class="mt-6">
-                        <div class="w-full p-4 bg-white xl:p-6">
+                        <div class="dark-block rounded-lg w-full p-4 bg-white xl:p-6">
                             <ul class="flex text-sm text-center text-gray-500 divide-x divide-gray-200">
                                 <li class="w-full">
-                                    <button id="show-original" class="bg-gray-100 rounded-l-lg inline-block w-full p-2 text-gray-900 focus:ring-4 focus:ring-blue-300 focus:outline-none">Original</button>
+                                    <button id="show-original" class="bg-gray-100 rounded-l-lg inline-block w-full p-2 text-gray-900 hover:bg-gray-100">Original</button>
                                 </li>
                                 <li class="w-full">
-                                    <button id="show-summary" class="inline-block rounded-r-lg w-full p-2 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none">Summary</button>
+                                    <button id="show-summary" class="inline-block rounded-r-lg w-full p-2 hover:text-gray-700 hover:bg-gray-100">Summary</button>
                                 </li>
                             </ul>
                             
@@ -241,7 +235,7 @@
                                 <div>
                                     <label for="sum-type" class="block text-sm text-gray-700 capitalize">Select Type</label>
                                     <select id="sum-type"
-                                        class="block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
+                                        class="bg-gray-100 block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 border border-gray-200 rounded-md">
                                         <option value="sum-text">Summarize Text</option>
                                         <option value="sum-video">Summarize Youtube Video</option>
                                     </select>
@@ -250,14 +244,14 @@
                                 <div id="sum-text-div">
                                     <label for="description"
                                         class="block text-sm text-gray-700 capitalize">description</label>
-                                    <textarea id="sum-text-input" required class="block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
+                                    <textarea id="sum-text-input" required class="bg-gray-100 block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md"
                                     style="min-height: 250px;" placeholder="Enter or upload your text and press &quot;Summarize&quot;"></textarea>
                                 </div>
 
                                 <div id="sum-video-div" class="hidden">
                                     <label for="video" class="block text-sm text-gray-700 capitalize">Youtube link</label>
                                     <input id="sum-video-input" placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ" type="url"
-                                        class="block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
+                                        class="block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md">
                                 </div>
 
                                 <p id='sum-err' class="no-invert hidden mt-2 text-sm text-red-500"></p>
@@ -286,12 +280,12 @@
                                     <label for="description"
                                         class="block text-sm text-gray-700 capitalize">Extracted Text</label>
                                     <textarea id="extracted-text"
-                                        class="minh-text block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"></textarea>
+                                        class="minh-text block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md"></textarea>
                                 </div>
 
                                 <div class="w-full md:w-1/2 grid-cols-2 mt-6">
                                     <textarea id="summarized-text"
-                                        class="minh-text block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
+                                        class="bg-gray-100 minh-text block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md"
                                         style="min-height: 250px;"></textarea>
                                 </div>
                             </div>
