@@ -1,6 +1,5 @@
 import os
 import nltk
-nltk.data.path.append(os.path.join(os.getcwd(), 'nltk-data'))
 
 from nltk.cluster.util import cosine_distance
 from nltk.tokenize import sent_tokenize, word_tokenize
