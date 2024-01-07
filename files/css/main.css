@@ -1,11 +1,15 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap); @import url(https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap); /*! tailwindcss v3.1.6 | MIT License | https://tailwindcss.com*/
 *,:after,:before {
     border: 0 solid #e5e7eb;
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 
 :after,:before {
     --tw-content: ""
+}
+
+:root {
+    color-scheme: light dark;
 }
 
 html {
@@ -14,7 +18,7 @@ html {
     line-height: 1.5;
     -moz-tab-size: 4;
     -o-tab-size: 4;
-    tab-size: 4
+    tab-size: 4;
 }
 
 body {
@@ -1613,7 +1617,7 @@ select {
 
 .text-indigo-700 {
     --tw-text-opacity: 1;
-    color: #ffa116;
+    color: #ffa140;
 }
 
 .text-red-600 {
@@ -1885,9 +1889,9 @@ select {
     color: rgb(236 72 153/var(--tw-text-opacity))
 }
 
-.hover\:text-yellow-500:hover {
+.hover\:text-gold:hover {
     --tw-text-opacity: 1;
-    color: rgb(234 179 8/var(--tw-text-opacity))
+    color: #fcb1409c;
 }
 
 .hover\:text-green-500:hover {
@@ -2450,7 +2454,11 @@ select {
 }
 
 .dark .github-block {
-    border-color: rgb(255, 255, 255);
+    border-color: #e0e0e0;
+}
+
+.dark .github-block:hover {
+    background-color: #e8e8e8;
 }
 
 .text-original { 
@@ -2459,4 +2467,29 @@ select {
 
 .dark .bg-gray-200 {
     background-color: #f3f4f6;
+}
+
+.dark textarea {
+    filter: invert(100%);
+    color: #a8a195;
+    background-color: #0c0b09;
+    border-color: #1a1a1a;
+}
+
+.dark textarea:focus {
+    box-shadow: 0 0 0 2px #fcb140;
+}
+
+.dark textarea::placeholder {
+    color: #6f6f6f;
+}
+
+kbd {
+    border-radius: 3px;
+    padding: 1px 2px 0;
+    border: 1px solid #fcb140;
+}
+
+.dark kbd {
+    border: 1px solid #032ecf;
 }

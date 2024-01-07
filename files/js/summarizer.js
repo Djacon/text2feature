@@ -25,7 +25,13 @@ const summary  = document.getElementById('sum-summary');
 const showOriginal = document.getElementById('show-original');
 const showSummary  = document.getElementById('show-summary');
 
-const MAX_SIZE = 20000;
+const MAX_SIZE = 100000;
+
+
+let cache = {
+    'text': undefined,
+    'result': undefined,
+}
 
 
 function _summarize() {
@@ -39,7 +45,10 @@ function _summarize() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             result = xhr.responseText.split('\\n').join('\n');
             summaryText.value = result.slice(1, -1);
-            _show_summary();
+            cache = {
+                'text': extractText.value,
+                'result': summaryText.value
+            };
         }
     };
 
@@ -120,6 +129,13 @@ async function summarize(event) {
             extractText.value = sumVideoInput.value.slice(0, MAX_SIZE);
             break;
     }
+
+    if (extractText.value === cache.text) {
+        console.log('Result already in cache!');
+        summaryText.value = cache.result;
+        return;
+    }
+
     _summarize();
 }
 
@@ -164,6 +180,8 @@ function _show_summary() {
 
     summary.classList.remove('hidden');
     original.classList.add('hidden');
+
+    summaryText.focus({ preventScroll: true });
 }
 
 function _show_original() {
@@ -172,14 +190,34 @@ function _show_original() {
 
     original.classList.remove('hidden');
     summary.classList.add('hidden');
+
+    sumTextInput.focus({ preventScroll: true });
 }
 
 
 document.addEventListener('DOMContentLoaded', function () {
     selectOption.addEventListener('change', _update_option);
 
-    var submitButton = document.getElementById('submit');
+    const submitButton = document.getElementById('submit');
     submitButton.addEventListener('click', summarize);
+    document.addEventListener('keydown', function(event) {
+        if (event.ctrlKey && event.key === 'Enter') {
+            _show_original()
+            summarize(event);
+        }
+    });
+
+    document.addEventListener('keydown', function(event) {
+        if (event.ctrlKey && event.altKey && event.key === 'ArrowLeft') {
+            _show_original();
+        }
+    });
+
+    document.addEventListener('keydown', function(event) {
+        if (event.ctrlKey && event.altKey && event.key === 'ArrowRight') {
+            _show_summary();
+        }
+    });
 
     sumFileInput.addEventListener('change', async function() {
         const allowedTypes = ['application/pdf', 'text/plain'];
@@ -211,3 +249,5 @@ document.addEventListener('DOMContentLoaded', function () {
     showSummary.addEventListener('click', _show_summary);
     showOriginal.addEventListener('click', _show_original);
 });
+
+summaryText.placeholder = `London is the capital of Great Britain`;

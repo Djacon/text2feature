@@ -25,7 +25,13 @@ const showSummary  = document.getElementById('show-summary');
 const MAX_SIZE = 20000;
 
 
-function _detect() {
+let cache = {
+    'text': undefined,
+    'result': undefined,
+}
+
+
+async function _detect() {
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '/predict_emotion', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
@@ -36,6 +42,10 @@ function _detect() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             result = xhr.responseText.split('\\n').join('\n');
             summaryText.value = result.slice(1, -1);
+            cache = {
+                'text': extractText.value,
+                'result': summaryText.value
+            };
         }
     };
 
@@ -94,6 +104,12 @@ async function summarize(event) {
 
     _show_summary();
 
+    if (value === cache.text) {
+        console.log('Result already in cache!');
+        summaryText.value = cache.result;
+        return;
+    }
+
     // Here we can finally summarize data
     summaryText.value = 'Please wait...';
     extractText.value = sumTextInput.value.trim().slice(0, MAX_SIZE);
@@ -119,6 +135,8 @@ function _show_summary() {
 
     summary.classList.remove('hidden');
     original.classList.add('hidden');
+
+    summaryText.focus({ preventScroll: true });
 }
 
 function _show_original() {
@@ -127,11 +145,31 @@ function _show_original() {
 
     original.classList.remove('hidden');
     summary.classList.add('hidden');
+
+    sumTextInput.focus({ preventScroll: true });
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    var submitButton = document.getElementById('submit');
+    const submitButton = document.getElementById('submit');
     submitButton.addEventListener('click', summarize);
+    document.addEventListener('keydown', function(event) {
+        if (event.ctrlKey && event.key === 'Enter') {
+            _show_original()
+            summarize(event);
+        }
+    });
+
+    document.addEventListener('keydown', function(event) {
+        if (event.ctrlKey && event.altKey && event.key === 'ArrowLeft') {
+            _show_original();
+        }
+    });
+
+    document.addEventListener('keydown', function(event) {
+        if (event.ctrlKey && event.altKey && event.key === 'ArrowRight') {
+            _show_summary();
+        }
+    });
 
     sumFileInput.addEventListener('change', async function() {
         const allowedTypes = ['application/pdf', 'text/plain'];
@@ -160,3 +198,5 @@ document.addEventListener('DOMContentLoaded', function () {
     showSummary.addEventListener('click', _show_summary);
     showOriginal.addEventListener('click', _show_original);
 });
+
+summaryText.placeholder = `Neutral: 0.00%\nJoy: 0.00%\nSadness: 0.00%\nAnger: 0.00%\nEnthusiasm: 0.00%\nSurprise: 0.00%\nDisgust: 0.00%\nFear: 0.00%\nGuilt: 0.00%\nShame: 0.00%`;

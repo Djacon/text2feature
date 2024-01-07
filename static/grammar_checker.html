@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="canonical" href="">
-    <title>Text2Feature | Summarizer</title>
+    <title>Text2Feature | Grammar</title>
     <link rel="stylesheet" href="files/css/main.css">
     <link rel="icon" type="image/svg+xml" href="files/images/favicon.svg">
     <script defer src="files/js/main.js"></script>
@@ -58,7 +58,7 @@
                         <span class="mx-3 font-medium capitalize">Homepage</span>
                     </a>
 
-                    <a class="flex items-center px-4 py-2 text-gray-600 transition-colors duration-300 transform bg-gray-200 rounded-lg bg-opacity-40"
+                    <a class="flex items-center px-4 py-2 text-gray-500 transition-colors duration-200 transform rounded-lg hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
                         href="text_summarizer">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor" stroke-width="2">
@@ -91,7 +91,7 @@
                         <span class="mx-3 font-medium capitalize">Analytics</span>
                     </a>
 
-                    <a class="flex items-center px-4 py-2 text-gray-500 transition-colors duration-300 transform rounded-lg hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
+                    <a class="flex items-center px-4 py-2 text-gray-600 transition-colors duration-300 transform bg-gray-200 rounded-lg bg-opacity-40"
                         href="grammar_checker">
                         <svg version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
                             viewBox="0 0 32 32" xml:space="preserve" width="24" height="24">
@@ -223,12 +223,12 @@
             <main class="flex-1 overflow-y-auto">
                 <div class="px-4 py-8 sm:px-6">
                     <div>
-                        <h1 class="text-2xl font-medium text-gray-700 sm:text-3xl">Text Summarizer</h1>
+                        <h1 class="text-2xl font-medium text-gray-700 sm:text-3xl">Grammar Checker</h1>
 
                         <div class="hidden mt-3 overflow-y-auto text-sm lg:items-center lg:flex whitespace-nowrap">
                             <a class="text-gray-600">Pages</a>
                             <span class="mx-1 text-gray-500">/</span>
-                            <a href="" class="hover:underline no-invert" style="color: #ffa116;">Text_Summarizer</a>
+                            <a href="" class="hover:underline no-invert" style="color: #ffa116">Grammar Checker</a>
                         </div>
                     </div>
 
@@ -242,28 +242,11 @@
                                     <button id="show-summary" class="inline-block rounded-r-lg w-full p-2 hover:text-gray-700 hover:bg-gray-100">Summary</button>
                                 </li>
                             </ul>
-                            
-                            <div id='sum-original' class="mt-6 space-y-5">
-                                <div>
-                                    <label for="sum-type" class="block text-sm text-gray-700 capitalize">Select Type</label>
-                                    <select id="sum-type"
-                                        class="bg-gray-100 block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 border border-gray-200 rounded-md">
-                                        <option value="sum-text">Summarize Text</option>
-                                        <option value="sum-video">Summarize Youtube Video</option>
-                                    </select>
-                                </div>
 
+                            <div id='sum-original' class="mt-6 space-y-5" onsubmit="return false;">
                                 <div id="sum-text-div">
-                                    <label for="description"
-                                        class="block text-sm text-gray-700 capitalize">description</label>
                                     <textarea id="sum-text-input" required class="bg-gray-100 block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md"
-                                    style="min-height: 250px;" placeholder="Enter or upload your text and press &quot;Summarize&quot;"></textarea>
-                                </div>
-
-                                <div id="sum-video-div" class="hidden">
-                                    <label for="video" class="block text-sm text-gray-700 capitalize">Youtube link</label>
-                                    <input id="sum-video-input" placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ" type="url"
-                                        class="block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md">
+                                    style="min-height: 250px;" placeholder="Enter or upload your text and press &quot;Check&quot;"></textarea>
                                 </div>
 
                                 <p id='sum-err' class="no-invert hidden mt-2 text-sm text-red-500"></p>
@@ -282,13 +265,13 @@
                                     </label>
                                     <button id="submit" class="w-32 sm:w-80 flex items-center justify-center py-2 px-4 rounded font-medium text-white rounded-full"
                                         style="max-height: 2.5rem;">
-                                        Summarize
+                                        Check
                                     </button>
                                 </div>
                             </div>
 
                             <div id="sum-summary" class='hidden mt-6 space-y-5'>
-                                <div class="w-full md:w-1/2 grid-cols-2 mt-6 hidden">
+                                <div class="hidden w-full md:w-1/2 grid-cols-2 mt-6">
                                     <label for="description"
                                         class="block text-sm text-gray-700 capitalize">Extracted Text</label>
                                     <textarea id="extracted-text"
@@ -298,7 +281,7 @@
                                 <div class="w-full md:w-1/2 grid-cols-2 mt-6">
                                     <textarea id="summarized-text"
                                         class="bg-gray-100 minh-text block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md"
-                                        style="min-height: 250px;"></textarea>
+                                        style="min-height: 270px;"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -309,18 +292,18 @@
                                     About
                                 </h2>
                                 <p class="mt-4 font-medium text-gray-700">
-                                    Project for fast text summarization using modern NLP technologies with a user-friendly UI
+                                    Project on checking text for mistakes (Syntax, Semantic or Morphologic) using a neural network
                                 </p>
                                 <p class="mt-4 font-medium text-gray-700">
                                     Key Features:
                                 </p>
                                 <ul class="mt-2 text-gray-800" style="list-style-type: disc; list-style-position: inside;">
                                     <li>Intuitive UI (User Interface)</li>
-                                    <li>Automated text summarization for texts of varying lengths (text must be between 250 and 100K characters)</li>
-                                    <li>Hotkeys: press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> to <b>Summarize</b>, press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>←/→</kbd> to <b>switch between tabs.</b></li>
+                                    <li>Automated grammar checker for texts of varying lengths (text must be less than 20K characters)</li>
+                                    <li>Hotkeys: press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> to <b>Check</b>, press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>←/→</kbd> to <b>switch between tabs.</b></li>
                                 </ul>
                                 <p class="mt-4 text-gray-800">
-                                    If you want to learn more about the project, here is a link to the github repository: <a class="text-indigo-700 no-invert hover:text-gold" href="https://github.com/Djacon/text-summarization" target="_blank">Djacon/Text-Summarization</a>
+                                    If you want to learn more about the project, here is a link to the github repository: <a class="text-indigo-700 no-invert hover:text-gold" href="https://github.com/Djacon/mbert-gram" target="_blank">Djacon/mBert-Gram</a>
                                 </p>
                             </div>
                         </section>
@@ -332,6 +315,6 @@
 
     <script src="files/js/theme.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js"></script>
-    <script src="files/js/summarizer.js"></script>
+    <script src="files/js/grammar.js"></script>
 </body>
 </html>

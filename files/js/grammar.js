@@ -1,7 +1,6 @@
 // Form Divs
-const form = document.getElementById('sum-form');
-const sumText  = document.getElementById('sum-text-div');
-const sumFile  = document.getElementById('sum-file-div')
+const sumText = document.getElementById('sum-text-div');
+const sumFile = document.getElementById('sum-file-div')
 
 // Form Data
 const sumTextInput  = document.getElementById('sum-text-input');
@@ -17,20 +16,36 @@ const summaryText = document.getElementById('summarized-text');
 // Word Counter
 const wordsCount = document.getElementById('word-counter');
 
+// Tabs
+const original = document.getElementById('sum-original');
+const summary  = document.getElementById('sum-summary');
+const showOriginal = document.getElementById('show-original');
+const showSummary  = document.getElementById('show-summary');
+
 const MAX_SIZE = 20000;
 
 
-function _detect() {
+let cache = {
+    'text': undefined,
+    'result': undefined,
+}
+
+
+function _check() {
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', '/predict_emotion', true);
+    xhr.open('POST', '/predict_grammar', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
- 
+
     var data = JSON.stringify({ 'sum_type': 'sum-text', 'text': extractText.value });
 
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             result = xhr.responseText.split('\\n').join('\n');
             summaryText.value = result.slice(1, -1);
+            cache = {
+                'text': extractText.value,
+                'result': summaryText.value
+            };
         }
     };
 
@@ -87,10 +102,18 @@ async function summarize(event) {
 
     sumError.classList.add('hidden');
 
+    _show_summary();
+
+    if (value === cache.text) {
+        console.log('Result already in cache!');
+        summaryText.value = cache.result;
+        return;
+    }
+
     // Here we can finally summarize data
     summaryText.value = 'Please wait...';
     extractText.value = sumTextInput.value.trim().slice(0, MAX_SIZE);
-    _detect();
+    _check();
 }
 
 function _update_counter() {
@@ -106,9 +129,47 @@ function _update_counter() {
     wordsCount.innerHTML = `Words: ${text.split(/\s+/).length} | Chars: ${text.length}`
 }
 
+function _show_summary() {
+    showOriginal.classList.remove('bg-gray-100');
+    showSummary.classList.add('bg-gray-100');
+
+    summary.classList.remove('hidden');
+    original.classList.add('hidden');
+
+    summaryText.focus({ preventScroll: true });
+}
+
+function _show_original() {
+    showOriginal.classList.add('bg-gray-100');
+    showSummary.classList.remove('bg-gray-100');
+
+    original.classList.remove('hidden');
+    summary.classList.add('hidden');
+
+    sumTextInput.focus({ preventScroll: true });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
-    var submitButton = document.getElementById('submit');
+    const submitButton = document.getElementById('submit');
     submitButton.addEventListener('click', summarize);
+    document.addEventListener('keydown', function(event) {
+        if (event.ctrlKey && event.key === 'Enter') {
+            _show_original()
+            summarize(event);
+        }
+    });
+
+    document.addEventListener('keydown', function(event) {
+        if (event.ctrlKey && event.altKey && event.key === 'ArrowLeft') {
+            _show_original();
+        }
+    });
+
+    document.addEventListener('keydown', function(event) {
+        if (event.ctrlKey && event.altKey && event.key === 'ArrowRight') {
+            _show_summary();
+        }
+    });
 
     sumFileInput.addEventListener('change', async function() {
         const allowedTypes = ['application/pdf', 'text/plain'];
@@ -133,4 +194,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     sumTextInput.addEventListener('input', _update_counter);
+
+    showSummary.addEventListener('click', _show_summary);
+    showOriginal.addEventListener('click', _show_original);
 });
+
+summaryText.placeholder = `Acceptance: 50.00%`;

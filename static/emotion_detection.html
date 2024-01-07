@@ -12,15 +12,22 @@
 </head>
 
 <body class="overflow-hidden">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B751Q3XBFC"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-        gtag('config', 'G-B751Q3XBFC');
+        ym(95744490, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true
+        });
     </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/95744490" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
 
     <div x-data="{ sidebarOpen: false }" class="relative flex h-screen text-gray-800 bg-white font-roboto">
         <div x-cloak :class="sidebarOpen ? 'block' : 'hidden'" @click="sidebarOpen = false"
@@ -64,10 +71,10 @@
                     <a class="flex items-center px-4 py-2 text-gray-600 transition-colors duration-300 transform bg-gray-200 rounded-lg bg-opacity-40"
                         href="emotion_detection">
                         <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 16C9.85038 16.6303 10.8846 17 12 17C13.1154 17 14.1496 16.6303 15 16" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
-                            <path d="M16 10.5C16 11.3284 15.5523 12 15 12C14.4477 12 14 11.3284 14 10.5C14 9.67157 14.4477 9 15 9C15.5523 9 16 9.67157 16 10.5Z" fill="#1C274C"/>
-                            <ellipse cx="9" cy="10.5" rx="1" ry="1.5" fill="#1C274C"/>
-                            <path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M9 16C9.85038 16.6303 10.8846 17 12 17C13.1154 17 14.1496 16.6303 15 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M16 10.5C16 11.3284 15.5523 12 15 12C14.4477 12 14 11.3284 14 10.5C14 9.67157 14.4477 9 15 9C15.5523 9 16 9.67157 16 10.5Z" fill="currentColor"/>
+                            <ellipse cx="9" cy="10.5" rx="1" ry="1.5" fill="currentColor"/>
+                            <path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
                         </svg>
                         <span class="mx-3 font-medium capitalize">Emotion Detection</span>
                     </a>
@@ -85,13 +92,18 @@
                     </a>
 
                     <a class="flex items-center px-4 py-2 text-gray-500 transition-colors duration-300 transform rounded-lg hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
-                        href="">
-                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M13 10V14H19V10H13ZM11 10H5V14H11V10ZM13 19H19V16H13V19ZM11 19V16H5V19H11ZM13 5V8H19V5H13ZM11 5H5V8H11V5ZM19 3C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3H19Z"
-                                fill="currentColor"></path>
+                        href="grammar_checker">
+                        <svg version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                            viewBox="0 0 32 32" xml:space="preserve" width="24" height="24">
+                            <style type="text/css">
+                                .st0{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+                                .st1{fill:none;stroke:currentColor;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;}
+                            </style>
+                            <path class="st0" d="M27,29H7c-1.1,0-2-0.9-2-2v0c0-1.1,0.9-2,2-2h20l0-22H8C6.3,3,5,4.3,5,6v21"/>
+                            <polyline class="st0" points="11,19 16,9 21,19 "/>
+                            <line class="st0" x1="13" y1="16" x2="19" y2="16"/>
                         </svg>
-                        <span class="mx-3 font-medium capitalize">Project 4</span>
+                        <span class="mx-3 font-medium capitalize">Grammar Checker</span>
                     </a>
                 </div>
 
@@ -170,8 +182,8 @@
                                         </a>
 
                                         <a class="block px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 transform sm:px-12 hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
-                                            href="">
-                                            Project 4
+                                            href="grammar_checker">
+                                            Grammar Checker
                                         </a>
                                     </div>
                                 </div>
@@ -194,7 +206,7 @@
                                 <img class="flex-shrink-0 object-cover w-8 h-8 rounded-full" src="files/images/github-mark.svg" alt="github-mark">
                             </button>
 
-                            <a href="https://github.com/Djacon/text2feature" target="_blank" class="border github-block dark-block absolute right-0 z-20 w-56 py-1 mt-2 overflow-hidden bg-white rounded-md rtl:right-auto rtl:left-0" x-show="dropdownOpen" x-transition:enter="transition ease-out duration-100 transform" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-75 transform" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" @click.away="dropdownOpen = false" style="display: none;">
+                            <a href="https://github.com/Djacon" target="_blank" class="border github-block dark-block absolute right-0 z-20 w-56 py-1 mt-2 overflow-hidden bg-white rounded-md rtl:right-auto rtl:left-0" x-show="dropdownOpen" x-transition:enter="transition ease-out duration-100 transform" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-75 transform" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" @click.away="dropdownOpen = false" style="display: none;">
                                 <div class="flex items-center p-3 text-sm text-gray-600 transition-colors duration-200 transform">
                                     <img class="flex-shrink-0 object-cover mx-1 rounded-full w-9 h-9" src="files/images/github-mark.svg" alt="github-mark">
                                     <div class="mx-1">
@@ -269,10 +281,32 @@
                                 <div class="w-full md:w-1/2 grid-cols-2 mt-6">
                                     <textarea id="summarized-text"
                                         class="bg-gray-100 minh-text block w-full px-4 py-2.5 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md"
-                                        style="min-height: 250px;"></textarea>
+                                        style="min-height: 270px;"></textarea>
                                 </div>
                             </div>
                         </div>
+
+                        <section class="mt-6 space-y-6">
+                            <div class="dark-block w-full p-4 bg-white rounded-lg xl:p-6">
+                                <h2 class="text-lg font-medium text-gray-700 sm:text-xl md:text-2xl">
+                                    About
+                                </h2>
+                                <p class="mt-4 font-medium text-gray-700">
+                                    Project for recognizing 10 human emotions using Neural Network with a user-friendly UI
+                                </p>
+                                <p class="mt-4 font-medium text-gray-700">
+                                    Key Features:
+                                </p>
+                                <ul class="mt-2 text-gray-800" style="list-style-type: disc; list-style-position: inside;">
+                                    <li>Intuitive UI (User Interface)</li>
+                                    <li>Automated emotion detection for texts of varying lengths (text must be less than 20K characters)</li>
+                                    <li>Hotkeys: press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> to <b>Detect</b>, press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>←/→</kbd> to <b>switch between tabs.</b></li>
+                                </ul>
+                                <p class="mt-4 text-gray-800">
+                                    If you want to learn more about the project, here is a link to the github repository: <a class="text-indigo-700 no-invert hover:text-gold" href="https://github.com/Djacon/russian-emotion-detection" target="_blank">Djacon/Emotion-Detection</a>
+                                </p>
+                            </div>
+                        </section>
                     </div>
                 </div>
             </main>

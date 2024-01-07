@@ -12,15 +12,22 @@
 </head>
 
 <body class="overflow-hidden">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B751Q3XBFC"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-        gtag('config', 'G-B751Q3XBFC');
+        ym(95744490, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true
+        });
     </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/95744490" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
 
     <div x-data="{ sidebarOpen: false }" class="relative flex h-screen text-gray-800 bg-white font-roboto">
         <div x-cloak :class="sidebarOpen ? 'block' : 'hidden'" @click="sidebarOpen = false"
@@ -64,10 +71,10 @@
                     <a class="flex items-center px-4 py-2 text-gray-500 transition-colors duration-300 transform rounded-lg hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
                         href="emotion_detection">
                         <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 16C9.85038 16.6303 10.8846 17 12 17C13.1154 17 14.1496 16.6303 15 16" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
-                            <path d="M16 10.5C16 11.3284 15.5523 12 15 12C14.4477 12 14 11.3284 14 10.5C14 9.67157 14.4477 9 15 9C15.5523 9 16 9.67157 16 10.5Z" fill="#1C274C"/>
-                            <ellipse cx="9" cy="10.5" rx="1" ry="1.5" fill="#1C274C"/>
-                            <path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M9 16C9.85038 16.6303 10.8846 17 12 17C13.1154 17 14.1496 16.6303 15 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M16 10.5C16 11.3284 15.5523 12 15 12C14.4477 12 14 11.3284 14 10.5C14 9.67157 14.4477 9 15 9C15.5523 9 16 9.67157 16 10.5Z" fill="currentColor"/>
+                            <ellipse cx="9" cy="10.5" rx="1" ry="1.5" fill="currentColor"/>
+                            <path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
                         </svg>
                         <span class="mx-3 font-medium capitalize">Emotion Detection</span>
                     </a>
@@ -85,13 +92,18 @@
                     </a>
 
                     <a class="flex items-center px-4 py-2 text-gray-500 transition-colors duration-300 transform rounded-lg hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
-                        href="">
-                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M13 10V14H19V10H13ZM11 10H5V14H11V10ZM13 19H19V16H13V19ZM11 19V16H5V19H11ZM13 5V8H19V5H13ZM11 5H5V8H11V5ZM19 3C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3H19Z"
-                                fill="currentColor"></path>
+                        href="grammar_checker">
+                        <svg version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                            viewBox="0 0 32 32" xml:space="preserve" width="24" height="24">
+                            <style type="text/css">
+                                .st0{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+                                .st1{fill:none;stroke:currentColor;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;}
+                            </style>
+                            <path class="st0" d="M27,29H7c-1.1,0-2-0.9-2-2v0c0-1.1,0.9-2,2-2h20l0-22H8C6.3,3,5,4.3,5,6v21"/>
+                            <polyline class="st0" points="11,19 16,9 21,19 "/>
+                            <line class="st0" x1="13" y1="16" x2="19" y2="16"/>
                         </svg>
-                        <span class="mx-3 font-medium capitalize">Project 4</span>
+                        <span class="mx-3 font-medium capitalize">Grammar Checker</span>
                     </a>
                 </div>
 
@@ -170,8 +182,8 @@
                                         </a>
 
                                         <a class="block px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 transform sm:px-12 hover:text-gray-600 hover:bg-gray-100 bg-opacity-40"
-                                            href="">
-                                            Project 4
+                                            href="grammar_checker">
+                                            Grammar Checker
                                         </a>
                                     </div>
                                 </div>
@@ -194,7 +206,7 @@
                                 <img class="flex-shrink-0 object-cover w-8 h-8 rounded-full" src="files/images/github-mark.svg" alt="github-mark">
                             </button>
 
-                            <a href="https://github.com/Djacon/text2feature" target="_blank" class="border github-block dark-block absolute right-0 z-20 w-56 py-1 mt-2 overflow-hidden bg-white rounded-md rtl:right-auto rtl:left-0" x-show="dropdownOpen" x-transition:enter="transition ease-out duration-100 transform" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-75 transform" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" @click.away="dropdownOpen = false" style="display: none;">
+                            <a href="https://github.com/Djacon" target="_blank" class="border github-block dark-block absolute right-0 z-20 w-56 py-1 mt-2 overflow-hidden bg-white rounded-md rtl:right-auto rtl:left-0" x-show="dropdownOpen" x-transition:enter="transition ease-out duration-100 transform" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-75 transform" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" @click.away="dropdownOpen = false" style="display: none;">
                                 <div class="flex items-center p-3 text-sm text-gray-600 transition-colors duration-200 transform">
                                     <img class="flex-shrink-0 object-cover mx-1 rounded-full w-9 h-9" src="files/images/github-mark.svg" alt="github-mark">
                                     <div class="mx-1">
@@ -221,113 +233,155 @@
                     </div>
 
                     <div class="mt-6">
-                        <section class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
-                            <div class="dark-block flex items-center justify-between px-6 py-3 bg-white rounded-lg shadow-sm">
-                                <div>
-                                    <p class="font-medium text-gray-500">Today’s Users</p>
-
-                                    <div class="flex items-end">
-                                        <h2 class="mt-1 text-2xl font-medium text-original">23</h2>
-                                        <span class="mx-2 text-red-500 no-invert">
-                                            -15%
-                                        </span>
-                                    </div>
-                                </div>
-
-                                <div class="p-2 text-white rounded-lg no-invert" style="background-color: #ffa116">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
-                                    </svg>
-                                </div>
-                            </div>
-
-                            <div class="dark-block flex items-center justify-between px-6 py-3 bg-white rounded-lg shadow-sm">
-                                <div>
-                                    <p class="font-medium text-gray-500">Total Users</p>
-
-                                    <div class="flex items-end">
-                                        <h2 class="mt-1 text-2xl font-medium text-original">54</h2>
-                                        <span class="mx-2 text-green-500 no-invert">
-                                            +5%
-                                        </span>
-                                    </div>
-                                </div>
-
-                                <div class="p-2 text-white rounded-lg no-invert" style="background-color: #ffa116">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                    </svg>
-                                </div>
-                            </div>
-
-                            <div class="dark-block flex items-center justify-between px-6 py-3 bg-white rounded-lg shadow-sm">
-                                <div>
-                                    <p class="font-medium text-gray-500">New Users</p>
-
-                                    <div class="flex items-end">
-                                        <h2 class="mt-1 text-2xl font-medium text-original">+15</h2>
-                                        <span class="mx-2 text-green-500 no-invert">
-                                            +34%
-                                        </span>
-                                    </div>
-                                </div>
-
-                                <div class="p-2 text-white rounded-lg no-invert" style="background-color: #ffa116">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                    </svg>
-                                </div>
-                            </div>
-
-                            <div class="dark-block flex items-center justify-between px-6 py-3 bg-white rounded-lg shadow-sm">
-                                <div>
-                                    <p class="font-medium text-gray-500">Total Projects</p>
-
-                                    <div class="flex items-end">
-                                        <h2 class="mt-1 text-2xl font-medium text-original">3</h2>
-                                    </div>
-                                </div>
-
-                                <div class="p-2 text-white rounded-lg no-invert" style="background-color: #ffa116">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </section>
-
                         <section class="mt-6 space-y-6">
                             <div class="dark-block w-full p-4 bg-white rounded-lg xl:p-6">
-                                <h1 class="text-lg font-medium sm:text-xl md:text-2xl">
+                                <h2 class="text-lg font-medium text-gray-700 sm:text-xl md:text-2xl">
                                     Welcome to Text2<span class="no-invert" style="color: #ffa116">Feature</span>!
-                                </h1>
-                                <p class="mt-4 text-original">
+                                </h2>
+                                <p class="mt-4 text-gray-800">
                                     – your gateway to the world of text processing and analysis! Our tools empower you to
                                     easily and swiftly process textual information from any source, be it files, web pages, or text data. We provide
                                     you with powerful instruments to search for and extract key 'features' within text, aiding you in extracting
                                     valuable insights and making informed decisions.
                                 </p>
-                                <p class="mt-4 text-original">
+                                <p class="mt-4 text-gray-800">
                                     With Text2Feature, you can:
                                 </p>
-                                <ul class="mt-2 text-original" style="list-style-type: disc; list-style-position: inside;">
+                                <ul class="mt-2 text-gray-800" style="list-style-type: disc; list-style-position: inside;">
                                     <li>Import and analyze text files in various formats.</li>
                                     <li>Search for and highlight important features within text for further exploration.</li>
                                     <li>Structure and organize your textual content for more effective analysis.</li>
                                     <li>Utilize a range of tools and methods for text processing and knowledge extraction.</li>
                                 </ul>
-                                <p class="mt-4 text-original">
+                                <p class="mt-4 text-gray-800">
                                     Join Text2Feature and transform text into valuable knowledge effortlessly. Get started now and bring your
                                     research and analytical ideas to life!
                                 </p>
+                            </div>
+                        </section>
+
+                        <section class="dark-block p-4 mt-8 bg-white rounded-lg shadow-sm xl:p-8">
+                            <h2 class="text-lg font-medium text-gray-700 capitalize sm:text-xl md:text-2xl">Projects</h2>
+                            
+                            <p class="flex items-center mt-2 text-gray-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="no-invert w-5 h-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+
+                                <span class="mx-2">4 projects implemented</span>
+                            </p>
+                        
+                            <div class="flex flex-col mt-8">
+                                <div class="overflow-x-auto">
+                                    <div class="inline-block min-w-full align-middle">
+                                        <div class="overflow-hidden">
+                                            <table class="min-w-full divide-y divide-gray-200">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col" class="px-6 py-3 text-sm font-medium tracking-wider text-left text-gray-500 uppercase rtl:text-right">
+                                                            Project Name
+                                                        </th>
+                                                        <th scope="col" class="px-6 py-3 text-sm font-medium tracking-wider text-left text-gray-500 uppercase rtl:text-right">
+                                                            Project Stack
+                                                        </th>
+                                                        <th scope="col" class="px-6 py-3 text-sm font-medium tracking-wider text-left text-gray-500 uppercase rtl:text-right">
+                                                            Date
+                                                        </th>
+                                                        <th scope="col" class="px-6 py-3 text-sm font-medium tracking-wider text-left text-gray-500 uppercase rtl:text-right">
+                                                            Completion
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody class="divide-y divide-gray-200">
+                                                    <tr>
+                                                        <td class="px-6 py-4 font-medium text-gray-800 whitespace-nowrap">
+                                                            <a href="text_summarizer" class="hover:text-gray-600">Text Summarizer</a>
+                                                        </td>
+                        
+                                                        <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
+                                                            NLTK, Numpy, Pandas
+                                                        </td>
+
+                                                        <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
+                                                            29 Sep 2023 - 6 Oct 2023
+                                                        </td>
+
+                                                        <td class="no-invert px-6 py-4 text-gray-700 capitalize whitespace-nowrap">
+                                                            <span class="font-medium text-indigo-500">100%</span>
+                                                            <div class="w-full h-2 overflow-hidden bg-gray-200 rounded-full">
+                                                                <div class="w-full h-full bg-indigo-500"></div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                        
+                                                    <tr>
+                                                        <td class="px-6 py-4 font-medium text-gray-800 whitespace-nowrap">
+                                                            <a href="emotion_detection" class="hover:text-gray-600">Emotion Detection</a>
+                                                        </td>
+                        
+                                                        <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
+                                                            Transformers, Torch
+                                                        </td>
+
+                                                        <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
+                                                            29 Sep 2023 - 3 Oct 2023
+                                                        </td>
+                        
+                                                        <td class="no-invert px-6 py-4 text-gray-700 capitalize whitespace-nowrap">
+                                                            <span class="font-medium text-indigo-500">100%</span>
+                                                            <div class="w-full h-2 overflow-hidden bg-gray-200 rounded-full">
+                                                                <div class="w-full h-full bg-indigo-500 "></div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="px-6 py-4 font-medium text-gray-800 whitespace-nowrap">
+                                                            <a href="analytics" class="hover:text-gray-600">Analytics</a>
+                                                        </td>
+                        
+                                                        <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
+                                                            JS, Numpy, Pandas
+                                                        </td>
+
+                                                        <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
+                                                            28 Oct 2023 - Present
+                                                        </td>
+                        
+                                                        <td class="no-invert px-6 py-4 text-gray-700 capitalize whitespace-nowrap">
+                                                            <span class="font-medium text-indigo-500">90%</span>
+                                                            <div class="w-full h-2 overflow-hidden bg-gray-200 rounded-full">
+                                                                <div class="w-11/12 h-full bg-indigo-500"></div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                        
+                                                    <tr>
+                                                        <td class="px-6 py-4 font-medium text-gray-800 whitespace-nowrap">
+                                                            <a href="grammar_checker" class="hover:text-gray-600">Grammar Checker</a>
+                                                        </td>
+                        
+                                                        <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
+                                                            Transformers, Torch
+                                                        </td>
+
+                                                        <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
+                                                            18 Nov 2023 - 28 Nov 2023
+                                                        </td>
+                        
+                                                        <td class="no-invert px-6 py-4 text-gray-700 capitalize whitespace-nowrap">
+                                                            <span class="font-medium text-indigo-500">100%</span>
+                                                            <div class="w-full h-2 overflow-hidden bg-gray-200 rounded-full">
+                                                                <div class="w-full h-full bg-indigo-500 "></div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </section>
                     </div>

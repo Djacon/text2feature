@@ -1,3 +1,13 @@
+// Info Output Sections
+const sumError = document.getElementById('sum-err');
+const sumInfo = document.getElementById('sum-info');
+
+// SVGs for columns
+const digitSVG = `<svg width="24" height="24" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--twemoji" preserveAspectRatio="xMidYMid meet" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"/><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/><g id="SVGRepo_iconCarrier"><path fill="currentColor" d="M36 32a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4h28a4 4 0 0 1 4 4v28z"/><path d="M9.613 6.096H8.492c-.912 0-1.292-.665-1.292-1.311c0-.665.475-1.311 1.292-1.311h2.698c.817 0 1.273.589 1.273 1.349v10.81c0 .95-.608 1.481-1.425 1.481c-.817 0-1.425-.532-1.425-1.481V6.096zm5.129 16.627c0 1.196-.513 2.241-1.558 2.906c1.368.627 2.318 1.9 2.318 3.4c0 2.28-2.09 4.198-4.788 4.198c-2.812 0-4.559-2.07-4.559-3.571c0-.74.779-1.272 1.463-1.272c1.291 0 .988 2.223 3.134 2.223c.988 0 1.786-.76 1.786-1.767c0-2.66-3.23-.703-3.23-2.944c0-1.995 2.698-.646 2.698-2.755c0-.722-.513-1.273-1.368-1.273c-1.805 0-1.558 1.862-2.85 1.862c-.779 0-1.235-.703-1.235-1.406c0-1.481 2.033-3.077 4.142-3.077c2.736-.001 4.047 1.993 4.047 3.476zm13.373-8.231c.836 0 1.48.38 1.48 1.254S28.951 17 28.228 17h-6.346c-.835 0-1.48-.38-1.48-1.254c0-.399.246-.741.437-.969c1.577-1.881 3.286-3.59 4.729-5.68c.343-.494.666-1.083.666-1.767c0-.779-.59-1.463-1.368-1.463c-2.185 0-1.14 3.078-2.964 3.078c-.912 0-1.387-.646-1.387-1.387c0-2.394 2.128-4.312 4.465-4.312c2.336 0 4.217 1.539 4.217 3.951c0 2.641-2.944 5.262-4.559 7.295h3.477zm-6.934 15.526c-.931 0-1.33-.627-1.33-1.121c0-.418.152-.646.267-.836l4.255-7.713c.418-.76.95-1.102 1.938-1.102c1.102 0 2.184.703 2.184 2.432v5.832h.323c.741 0 1.33.494 1.33 1.254s-.589 1.254-1.33 1.254h-.323v1.614c0 1.007-.398 1.483-1.367 1.483s-1.368-.476-1.368-1.483v-1.614h-4.579zm4.578-7.808h-.038l-2.564 5.3h2.603v-5.3z" fill="#FFF"/></g></svg>`
+const labelSVG = `<svg fill="currentColor" height="24" width="24" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 295 295" xml:space="preserve"><path d="M290.156,23.89c-0.482-10.311-8.733-18.562-19.044-19.044L168.005,0.023c-5.62-0.272-11.097,1.855-15.077,5.836 L5.858,152.93C2.108,156.681,0,161.767,0,167.072s2.107,10.392,5.858,14.143l107.929,107.928c3.904,3.905,9.023,5.857,14.142,5.857 c5.118,0,10.237-1.953,14.143-5.857l147.069-147.069c3.98-3.98,6.1-9.454,5.837-15.077L290.156,23.89z M252.481,76.087 c-9.269,9.269-24.298,9.269-33.567,0s-9.269-24.298,0-33.567s24.298-9.269,33.567,0S261.751,66.817,252.481,76.087z"/></svg>`
+const sentsSVG = `<svg width="24" height="24" viewBox="-3 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"><g id="Icon-Set-Filled" sketch:type="MSLayerGroup" transform="translate(-105.000000, -101.000000)" fill="currentColor"><path d="M125,109 C123.896,109 123,108.104 123,107 L123,103 L129,109 L125,109 L125,109 Z M124,119 L112,119 C111.448,119 111,118.553 111,118 C111,117.448 111.448,117 112,117 L124,117 C124.552,117 125,117.448 125,118 C125,118.553 124.552,119 124,119 L124,119 Z M124,125 L112,125 C111.448,125 111,124.553 111,124 C111,123.447 111.448,123 112,123 L124,123 C124.552,123 125,123.447 125,124 C125,124.553 124.552,125 124,125 L124,125 Z M123,101.028 C122.872,101.028 109,101 109,101 C106.791,101 105,102.791 105,105 L105,129 C105,131.209 106.791,133 109,133 L127,133 C129.209,133 131,131.209 131,129 L131,109 L123,101.028 L123,101.028 Z" id="text-document" sketch:type="MSShapeGroup"></path></g></g></svg>`
+
+
 function prettify(num) {
     num = +num;
     let mark = '';
@@ -21,6 +31,7 @@ function prettify(num) {
     return num + mark;
 }
 
+
 function median(arr) {
     arr.sort((a, b) => a - b);
 
@@ -34,6 +45,7 @@ function median(arr) {
     return +((mid1 + mid2) / 2).toFixed(2);
 }
 
+
 function get_info(arr) {
     let [min, max] = d3.extent(arr);
     let avg = +(arr.reduce((a, b) => a + b) / arr.length).toFixed(2);
@@ -43,7 +55,15 @@ function get_info(arr) {
 }
 
 
-function plot_hist(col_name, chart_id) {
+function get_lengths_array(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = arr[i].split(' ').length;
+    }
+    return new Int16Array(arr);
+}
+
+
+function plot_hist(col_name, chart_id, col_type='num') {
     let column = cache_df.dataset[chart_id];
 
     let min = column.metadata.min, max = column.metadata.max;
@@ -51,15 +71,16 @@ function plot_hist(col_name, chart_id) {
     let valid_count = column.metadata.total_values - nan_count;
     let nan_percentage = nan_count / column.metadata.total_values * 100;
     let info = [
-        ['DataType', 'Numerical'],
+        ['DataType', col_type == 'num' ? 'Numerical': 'Text | Lengths'],
         ['Mean', prettify(column.metadata.mean)],
         ['Median', prettify(column.metadata.median)],
         ['Std. Deviation', prettify(column.metadata.var)],
+        ['Conf. Interval', `[${prettify(Math.max(column.metadata.mean-3*column.metadata.var, min))}; ${prettify(Math.min(column.metadata.mean+3*column.metadata.var, max))}]`],
         ['Missing Values', `${nan_count} (${+(nan_percentage).toFixed(1)}%)`],
         ['Valid Values', `${valid_count} (${+(100 - nan_percentage).toFixed(1)}%)`],
     ]
 
-    addChart(chart_id, col_name, info);
+    addChart(chart_id, col_name, info, extra_symb=(col_type == 'num' ? digitSVG: sentsSVG) );
 
     var width = document.getElementById(`chart-${chart_id}`).clientWidth;
     var height = 300;
@@ -123,6 +144,7 @@ function plot_hist(col_name, chart_id) {
     });
 }
 
+
 function mode(data) {
     let modeLabel = 'Not Found';
     let maxCount = 0;
@@ -151,7 +173,7 @@ function plot_pie(col_name, chart_id) {
         ['Valid Values', `${valid_count} (${+(100 - nan_percentage).toFixed(1)}%)`],
     ];
 
-    addChart(chart_id, col_name, info);
+    addChart(chart_id, col_name, info, extra_symb=labelSVG);
 
     var width = document.getElementById(`chart-${chart_id}`).clientWidth;
     var height = 300;
@@ -180,14 +202,6 @@ function plot_pie(col_name, chart_id) {
         .append("path") 
         .attr("fill", (_, i)=> color(i)) 
         .attr("d", arc)
-
-    // svg.selectAll("label")
-    //     .data(pie(column))
-    //     .enter()
-    //     .append("text")
-    //     .attr("transform", d => `translate(${arc.centroid(d)})`)
-    //     .attr("text-anchor", "middle")
-    //     .text(d => d.data[0]);
 
     arcs.on("mouseover", (_, d) => {
         svg.append("text")
@@ -224,11 +238,11 @@ function _handle_column(data, col) {
     for (let row of data) {
         let value = row[col];
         if (value !== '') {
-            if (type != 'object') {
+            if (type != 'string') {
                 if (_is_number(value)) {
                     type = 'num';
                 } else {
-                    type = 'object';
+                    type = 'str';
                 }
             }
 
@@ -248,20 +262,28 @@ function _handle_column(data, col) {
         }
     }
 
-    type = maybe_cats ? 'cat' : type == 'num' ? type : 'object';
-    // console.log(col, type);
+    type = maybe_cats ? 'cat' : type == 'num' ? type : 'str';
 
     let nan_count = data.length - cols.length;
-    if (type == 'cat') {
+    if (type === 'cat') {
         cats = Object.entries(cats);
         let [mode_col, mode_count] = mode(cats);
         let col_data = {type, col, data: cats,
                         metadata: {nan_count, total_values: data.length,
                                    unique: cats_count, mode_info: `${mode_col} (${+(mode_count / cols.length * 100).toFixed(1)}%)`}}
         return [true, col_data];
-    } else if (type == 'num') {
+    } else if (type === 'num') {
         cols = new Float32Array(cols);
         let [min, max, mean_col, median_col, var_col] = get_info(cols);
+        let col_data = {type, col, data: cols,
+            metadata: {nan_count, total_values: data.length,
+                       min: min, max: max, mean: mean_col, median: median_col, var: var_col}}
+        return [true, col_data];
+    }
+
+    cols = get_lengths_array(cols);
+    let [min, max, mean_col, median_col, var_col] = get_info(cols);
+    if (min !== max) {
         let col_data = {type, col, data: cols,
             metadata: {nan_count, total_values: data.length,
                        min: min, max: max, mean: mean_col, median: median_col, var: var_col}}
@@ -335,8 +357,8 @@ function _plot(col_id) {
     values = cache_df.dataset[col_id];
     if (values.type == 'cat') {
         plot_pie(values.col, col_id);
-    } else if (values.type == 'num') {
-        plot_hist(values.col, col_id);
+    } else if (['num', 'str'].includes(values.type)) {
+        plot_hist(values.col, col_id, values.type);
     }
 }
 
@@ -354,7 +376,7 @@ function _toggle_column(col_id, is_open=true) {
     }
 }
 
-function addChart(chartID, name, info) {
+function addChart(chartID, name, info, extra_symb='⬛') {
     info_div = [];
     for (let item of info) {
         let v = `<p class="mt-1 text-sm text-gray-500 truncate sm:w-auto"><b>${item[0]}:</b> ${item[1]}</p>`
@@ -366,7 +388,12 @@ function addChart(chartID, name, info) {
     newChartDiv.className = 'cols dark-block p-4 mt-4 w-full overflow-hidden bg-white rounded-lg';
     newChartDiv.innerHTML = `
         <div class="dark-block w-full p-4 bg-white rounded-lg xl:p-6">
-            <h1 class="text-lg font-medium text-gray-700 capitalize sm:text-xl md:text-2xl">${name}</h1>
+            <h1 class="text-lg font-medium text-gray-700 capitalize sm:text-xl md:text-2xl flex items-center">
+                <div style='margin-right: 0.5rem;'>
+                    ${extra_symb}
+                </div>
+                ${name}
+            </h1>
             <div class="grid gap-12 mt-8 sm:grid-cols-2">
                 <div id="tooltip-${chartID}" class="rounded-lg" style="position: absolute; display: none; background-color: black; color: white; border: 1px solid black; padding: 5px; z-index: 1;"></div>
                 <div id="chart-${chartID}" class="flex items-center capitalize no-invert">
@@ -374,7 +401,6 @@ function addChart(chartID, name, info) {
                 <div class="flow-root mt-6">
                     <ul>
                         <li>
-                            <span class="absolute top-4 left-4 rtl:right-4 rtl:left-auto -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true"></span>
                             <div class="relative flex">
                                 <span class="flex items-center justify-center w-8 h-8">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-indigo-600 no-invert" viewBox="0 0 20 20" fill="currentColor">
@@ -398,22 +424,34 @@ function addChart(chartID, name, info) {
 var lastWidth = window.innerWidth;
 document.getElementById("submit").addEventListener("click", render);
 window.addEventListener("resize", () => {
+    if (cache_df.is_empty) return;
     if (Math.abs(lastWidth - window.innerWidth) > 25) {
         render();
         lastWidth = window.innerWidth;
     }
 });
 
+
 fileInput.addEventListener('change', function() {
+    sumError.classList.add('hidden');
+    if (fileInput.files.length > 0) {
+        sumInfo.innerText = `File "${fileInput.files[0].name}" was uploaded`;
+        sumInfo.classList.remove('hidden');
+    } else {
+        sumInfo.classList.add('hidden');
+    }
     cache_df.is_empty = true;
     cache_df.dataset = [];
 });
 
 
 function render() {
+    sumError.classList.add('hidden');
     if (fileInput.files.length > 0) {
         if (!fileInput.files[0].name.endsWith('.csv')) {
-            console.warn('Invalid Format!');
+            sumError.innerText = 'Not supported type (Only `.csv`)';
+            sumInfo.classList.add('hidden');
+            sumError.classList.remove('hidden');
             return;
         }
 
@@ -440,9 +478,12 @@ function render() {
         };
         reader.readAsText(selectedFile);
     } else {
-        console.warn('There is no file!');
+        sumError.innerText = 'There is no file!';
+        sumInfo.classList.add('hidden');
+        sumError.classList.remove('hidden');
     }
 }
+
 
 function _comeback_options() {
     dropdownSearch.style.display = 'none';
@@ -466,6 +507,30 @@ function _apply_options() {
     for (let i = 1; i < inputs.length; i++) {
         _toggle_column(i-1, inputs[i].checked);
     }
+}
+
+
+function allowDrop(event) {
+    event.preventDefault();
+    // console.log('inside');
+}
+
+function drop(event) {
+    event.preventDefault();
+    sumError.classList.add('hidden');
+    const files = event.dataTransfer.files;
+    if (files.length > 0) {
+        const newDT = new DataTransfer();
+        newDT.items.add(files[0]);
+        fileInput.files = newDT.files;
+
+        sumInfo.innerText = `File "${fileInput.files[0].name}" was uploaded`;
+        sumInfo.classList.remove('hidden');
+    } else {
+        sumInfo.classList.add('hidden');
+    }
+    cache_df.is_empty = true;
+    cache_df.dataset = [];
 }
 
 const showDropdownButton = document.getElementById('showDropdown');
