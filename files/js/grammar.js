@@ -160,13 +160,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     document.addEventListener('keydown', function(event) {
-        if (event.ctrlKey && event.altKey && event.key === 'ArrowLeft') {
+        if (event.key === 'PageUp' || event.key === 'Home') {
+            event.preventDefault();
             _show_original();
         }
-    });
 
-    document.addEventListener('keydown', function(event) {
-        if (event.ctrlKey && event.altKey && event.key === 'ArrowRight') {
+        else if (event.key === 'PageDown' || event.key == 'End') {
+            event.preventDefault();
             _show_summary();
         }
     });
